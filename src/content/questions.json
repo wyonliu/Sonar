@@ -1,0 +1,1376 @@
+{
+  "version": "1.0",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "相识",
+      "subtitle": "Getting to Know",
+      "description": "探索你在关系初期的样子",
+      "questions": [
+        {
+          "id": "ch1_q01",
+          "chapter": 1,
+          "scene_text": "朋友的生日聚会上，你注意到角落里一个人正安静地翻看书架上的书。你们的目光偶然交汇，对方微微一笑。你心里泛起一丝好奇。",
+          "options": [
+            {
+              "id": "A",
+              "text": "端着酒杯走过去，随意聊聊那本书，看看能不能自然地聊起来。",
+              "scores": { "intimacy_pace": 6, "expression_intensity": 3, "autonomy_need": -2, "security_baseline": 5 }
+            },
+            {
+              "id": "B",
+              "text": "回以微笑，但不主动过去。如果有缘，后面自然会有交集。",
+              "scores": { "intimacy_pace": -4, "expression_intensity": -3, "autonomy_need": 4, "security_baseline": 3 }
+            },
+            {
+              "id": "C",
+              "text": "让朋友帮忙介绍一下，有个中间人会自在很多。",
+              "scores": { "intimacy_pace": 2, "expression_intensity": -2, "security_baseline": -3, "autonomy_need": -1 }
+            },
+            {
+              "id": "D",
+              "text": "直接走过去说'你好，我叫XXX，你看的那本书我也读过'，开门见山。",
+              "scores": { "intimacy_pace": 8, "expression_intensity": 7, "autonomy_need": -1, "conflict_style": 3 }
+            }
+          ],
+          "media_hint": "暖色调的聚会场景，浅景深聚焦在书架旁的人影"
+        },
+        {
+          "id": "ch1_q02",
+          "chapter": 1,
+          "scene_text": "你和刚认识两周的人第三次约会，聊得很投机。夜色渐深，对方说：'我不想这个晚上就这样结束。'语气里有一点试探。",
+          "options": [
+            {
+              "id": "A",
+              "text": "心里其实也不想结束，顺势说'那我们去找个安静的地方继续聊'。",
+              "scores": { "intimacy_pace": 7, "expression_intensity": 4, "commitment_depth": 2, "security_baseline": 4 }
+            },
+            {
+              "id": "B",
+              "text": "虽然心动，但还是说'今天先到这里吧，下次我们再约'。有些东西急不来。",
+              "scores": { "intimacy_pace": -6, "expression_intensity": -2, "autonomy_need": 5, "security_baseline": 2 }
+            },
+            {
+              "id": "C",
+              "text": "笑着说'我也是，但我有个原则，好的东西值得等'。给对方一个明确但温柔的信号。",
+              "scores": { "intimacy_pace": -3, "expression_intensity": 4, "commitment_depth": 5, "security_baseline": 6 }
+            },
+            {
+              "id": "D",
+              "text": "被这句话弄得有点紧张，赶紧转移话题聊点别的，假装没听出弦外之音。",
+              "scores": { "intimacy_pace": -5, "expression_intensity": -6, "conflict_style": -5, "security_baseline": -4 }
+            }
+          ],
+          "media_hint": "城市夜景，两个人坐在户外餐桌旁，烛光映着脸"
+        },
+        {
+          "id": "ch1_q03",
+          "chapter": 1,
+          "shadow_pair_id": "sp1",
+          "scene_text": "你刚开始和一个人暧昧，今天发了消息给对方，已经过去三小时了还没回复。你看了眼手机，发现对方'最后上线'是五分钟前。",
+          "options": [
+            {
+              "id": "A",
+              "text": "心里有点不舒服，但告诉自己人家可能在忙，放下手机做自己的事。",
+              "scores": { "security_baseline": 4, "autonomy_need": 5, "expression_intensity": -3, "intimacy_pace": -2 }
+            },
+            {
+              "id": "B",
+              "text": "又发了一条消息，语气轻松地问'忙呢？'想确认一下对方的状态。",
+              "scores": { "security_baseline": -2, "expression_intensity": 3, "intimacy_pace": 4, "autonomy_need": -3 }
+            },
+            {
+              "id": "C",
+              "text": "心里翻涌得厉害，开始反复回想之前的对话，是不是自己说错了什么。",
+              "scores": { "security_baseline": -7, "autonomy_need": -4, "expression_intensity": -2, "growth_orientation": -3 }
+            },
+            {
+              "id": "D",
+              "text": "无所谓，三小时而已。如果对方想回自然会回，不需要时刻盯着手机。",
+              "scores": { "security_baseline": 7, "autonomy_need": 7, "intimacy_pace": -4, "commitment_depth": -2 }
+            }
+          ],
+          "media_hint": "手机屏幕特写，显示已读未回的对话界面，时间戳清晰可见"
+        },
+        {
+          "id": "ch1_q04",
+          "chapter": 1,
+          "scene_text": "你和一个心仪的人约好了周末去爬山。出发前一天晚上，对方突然说明天有个老朋友从外地来，问能不能改期。你其实已经推掉了其他安排。",
+          "options": [
+            {
+              "id": "A",
+              "text": "说'好啊，没关系'，虽然心里有点失望，但不想给对方压力。",
+              "scores": { "conflict_style": -5, "expression_intensity": -4, "security_baseline": -2, "autonomy_need": -2 }
+            },
+            {
+              "id": "B",
+              "text": "坦诚地说'我其实挺期待的，而且推掉了别的安排。能不能三个人一起？'",
+              "scores": { "expression_intensity": 5, "conflict_style": 3, "intimacy_pace": 4, "security_baseline": 4 }
+            },
+            {
+              "id": "C",
+              "text": "'行吧'，然后默默记下这件事。如果这种情况反复出现，那说明对方不够重视你。",
+              "scores": { "conflict_style": -4, "security_baseline": -5, "commitment_depth": -3, "growth_orientation": -2 }
+            },
+            {
+              "id": "D",
+              "text": "理解对方的选择，但也直接告诉对方你因此推掉了别的事，希望下次能更早通知。",
+              "scores": { "conflict_style": 5, "expression_intensity": 6, "security_baseline": 5, "growth_orientation": 5 }
+            }
+          ],
+          "media_hint": "手机上的消息弹窗，背景是已经打包好的登山背包"
+        },
+        {
+          "id": "ch1_q05",
+          "chapter": 1,
+          "scene_text": "第四次约会，你们一起看了场电影。散场后在路边等出租车，风有点大。对方自然地揽了一下你的肩膀。这是你们第一次身体接触。",
+          "options": [
+            {
+              "id": "A",
+              "text": "身体微微靠过去，顺势把头轻轻靠在对方肩上。这个距离刚好。",
+              "scores": { "intimacy_pace": 7, "expression_intensity": 5, "security_baseline": 5, "autonomy_need": -3 }
+            },
+            {
+              "id": "B",
+              "text": "心跳加速，但表面不动声色。没有靠过去，也没有躲开。保持现状就好。",
+              "scores": { "intimacy_pace": 1, "expression_intensity": -4, "security_baseline": 1, "autonomy_need": 2 }
+            },
+            {
+              "id": "C",
+              "text": "有点不自在，找个借口轻轻侧了一步。不是不喜欢，只是还没准备好。",
+              "scores": { "intimacy_pace": -5, "expression_intensity": -3, "autonomy_need": 6, "security_baseline": -2 }
+            },
+            {
+              "id": "D",
+              "text": "转过身来，认真地看着对方的眼睛微笑。用眼神告诉对方你接受这份靠近。",
+              "scores": { "intimacy_pace": 5, "expression_intensity": 8, "security_baseline": 6, "commitment_depth": 3 }
+            }
+          ],
+          "media_hint": "路灯下两个人的剪影，风吹过路边的树叶"
+        },
+        {
+          "id": "ch1_q06",
+          "chapter": 1,
+          "scene_text": "你在社交软件上和一个人聊了一周，感觉很合拍。对方提出见面，你查了一下资料，发现对方的朋友圈里有很多和不同异性的合照。",
+          "options": [
+            {
+              "id": "A",
+              "text": "社交广泛是好事啊，不代表什么。按计划见面，用自己的判断力去感受真实的人。",
+              "scores": { "security_baseline": 6, "growth_orientation": 4, "intimacy_pace": 3, "autonomy_need": 3 }
+            },
+            {
+              "id": "B",
+              "text": "心里有点警惕。见面可以，但会多观察一段时间再决定是否深入。",
+              "scores": { "security_baseline": -1, "commitment_depth": -3, "intimacy_pace": -3, "growth_orientation": 2 }
+            },
+            {
+              "id": "C",
+              "text": "找个机会随意问问对方的社交圈，看对方怎么说，再决定要不要见面。",
+              "scores": { "security_baseline": -3, "conflict_style": 2, "expression_intensity": 2, "intimacy_pace": -2 }
+            },
+            {
+              "id": "D",
+              "text": "果断取消见面。经验告诉你，这种社交模式的人通常不适合认真交往。",
+              "scores": { "security_baseline": -5, "commitment_depth": -4, "autonomy_need": 6, "intimacy_pace": -6 }
+            }
+          ],
+          "media_hint": "手机屏幕上滑动浏览朋友圈照片的画面"
+        },
+        {
+          "id": "ch1_q07",
+          "chapter": 1,
+          "scene_text": "周末你一个人在咖啡馆看书。刚认识不久、互有好感的人突然发消息说就在附近，问能不能过来一起待会儿。但你今天特意给自己安排了一个独处的下午。",
+          "options": [
+            {
+              "id": "A",
+              "text": "立刻说好啊，难得对方主动找你。书什么时候都能看，人更重要。",
+              "scores": { "autonomy_need": -6, "intimacy_pace": 6, "expression_intensity": 2, "commitment_depth": 3 }
+            },
+            {
+              "id": "B",
+              "text": "诚实地说你今天想一个人待着，但提议明天可以一起吃饭。",
+              "scores": { "autonomy_need": 7, "expression_intensity": 4, "intimacy_pace": -2, "security_baseline": 5 }
+            },
+            {
+              "id": "C",
+              "text": "说好，但内心有点不情愿。到了之后可能会不太投入，但你不想拒绝。",
+              "scores": { "autonomy_need": 3, "conflict_style": -5, "expression_intensity": -5, "security_baseline": -2 }
+            },
+            {
+              "id": "D",
+              "text": "说'我在看书呢，你要是不介意我继续看的话可以来坐坐'。各取所需。",
+              "scores": { "autonomy_need": 5, "intimacy_pace": 2, "expression_intensity": 3, "growth_orientation": 4 }
+            }
+          ],
+          "media_hint": "阳光洒在咖啡馆窗边，一杯咖啡和一本摊开的书"
+        },
+        {
+          "id": "ch1_q08",
+          "chapter": 1,
+          "scene_text": "你的好朋友私下告诉你，你正在约会的那个人之前有过一段很复杂的感情经历。朋友说：'我觉得你应该知道这些。'你听完后有点意外。",
+          "options": [
+            {
+              "id": "A",
+              "text": "谢谢朋友的关心，但每个人都有过去。你更在意的是这个人现在是什么样。",
+              "scores": { "security_baseline": 6, "growth_orientation": 6, "commitment_depth": 4, "intimacy_pace": 2 }
+            },
+            {
+              "id": "B",
+              "text": "记在心里，下次约会时找机会让对方自己聊聊过去。你想听当事人的版本。",
+              "scores": { "security_baseline": 2, "conflict_style": 3, "growth_orientation": 4, "expression_intensity": 2 }
+            },
+            {
+              "id": "C",
+              "text": "心里开始不安。你会忍不住想去了解更多细节，虽然知道这样做不太好。",
+              "scores": { "security_baseline": -5, "autonomy_need": -3, "expression_intensity": -2, "commitment_depth": -2 }
+            },
+            {
+              "id": "D",
+              "text": "觉得朋友不应该在背后说这些。过去的事是对方的隐私，什么时候说应该由对方决定。",
+              "scores": { "autonomy_need": 6, "security_baseline": 3, "intimacy_pace": -3, "conflict_style": 4 }
+            }
+          ],
+          "media_hint": "两个朋友坐在一起低声交谈的侧面镜头"
+        },
+        {
+          "id": "ch1_q09",
+          "chapter": 1,
+          "scene_text": "你们正式确定关系的第一天。对方兴奋地发了一条朋友圈，配了你们的合照和一段甜蜜的文字，还@了你。你的手机开始不断收到朋友们的点赞和评论。",
+          "options": [
+            {
+              "id": "A",
+              "text": "也发一条回应，让全世界知道你的幸福。这种时刻就是要大声宣布。",
+              "scores": { "expression_intensity": 8, "intimacy_pace": 5, "commitment_depth": 5, "autonomy_need": -4 }
+            },
+            {
+              "id": "B",
+              "text": "在对方那条下面留个甜甜的评论就好。你的幸福不需要靠朋友圈来确认。",
+              "scores": { "expression_intensity": 2, "autonomy_need": 4, "security_baseline": 4, "commitment_depth": 3 }
+            },
+            {
+              "id": "C",
+              "text": "虽然开心，但有点不自在。你更希望对方发之前问一下你。这是两个人的事。",
+              "scores": { "autonomy_need": 6, "expression_intensity": -3, "conflict_style": 2, "intimacy_pace": -3 }
+            },
+            {
+              "id": "D",
+              "text": "感到一阵压力。才第一天就这么高调，万一以后没走到最后呢？希望对方低调一些。",
+              "scores": { "security_baseline": -5, "commitment_depth": -4, "expression_intensity": -5, "intimacy_pace": -4 }
+            }
+          ],
+          "media_hint": "手机屏幕上不断弹出的点赞通知，背景渐变为粉色"
+        },
+        {
+          "id": "ch1_q10",
+          "chapter": 1,
+          "scene_text": "你和刚在一起的伴侣第一次去参加对方朋友的聚会。到了之后你发现你一个人都不认识，而对方很快就和老朋友们聊开了，似乎忘了你的存在。",
+          "options": [
+            {
+              "id": "A",
+              "text": "主动和旁边的人搭话，自己找乐子。不需要时刻黏在伴侣身边。",
+              "scores": { "autonomy_need": 6, "security_baseline": 6, "intimacy_pace": -1, "expression_intensity": 2 }
+            },
+            {
+              "id": "B",
+              "text": "走过去自然地加入对方的圈子，让对方介绍一下你。",
+              "scores": { "intimacy_pace": 4, "expression_intensity": 3, "security_baseline": 3, "autonomy_need": -2 }
+            },
+            {
+              "id": "C",
+              "text": "心里有点委屈，但不会当场说。回去之后会和对方聊聊这件事。",
+              "scores": { "conflict_style": -2, "expression_intensity": -2, "security_baseline": -3, "growth_orientation": 3 }
+            },
+            {
+              "id": "D",
+              "text": "用眼神或微信给对方发个信号——'嘿，别忘了我'。半开玩笑，但认真的。",
+              "scores": { "expression_intensity": 5, "security_baseline": -1, "intimacy_pace": 3, "conflict_style": 1 }
+            }
+          ],
+          "media_hint": "热闹的聚会场景中，一个人站在角落看着人群"
+        },
+        {
+          "id": "ch1_q11",
+          "chapter": 1,
+          "scene_text": "你约会对象的前任在社交媒体上关注了你，还给你最近的几条动态都点了赞。你注意到了这件事。",
+          "options": [
+            {
+              "id": "A",
+              "text": "一笑了之。前任关注你说明你很有魅力，没什么好纠结的。",
+              "scores": { "security_baseline": 7, "autonomy_need": 4, "expression_intensity": -1, "growth_orientation": 2 }
+            },
+            {
+              "id": "B",
+              "text": "和伴侣提一嘴，用轻松的语气。不是兴师问罪，就是觉得应该让对方知道。",
+              "scores": { "expression_intensity": 4, "conflict_style": 2, "security_baseline": 2, "intimacy_pace": 3 }
+            },
+            {
+              "id": "C",
+              "text": "有点在意。会去翻翻那个前任的主页，想了解对方是什么样的人。",
+              "scores": { "security_baseline": -5, "autonomy_need": -3, "commitment_depth": 2, "expression_intensity": -3 }
+            },
+            {
+              "id": "D",
+              "text": "直接屏蔽。没必要让前任介入你们的世界，干干净净最好。",
+              "scores": { "security_baseline": -2, "conflict_style": 5, "commitment_depth": 3, "autonomy_need": 5 }
+            }
+          ],
+          "media_hint": "社交媒体通知列表，一个陌生的头像反复出现"
+        },
+        {
+          "id": "ch1_q12",
+          "chapter": 1,
+          "scene_text": "你们在一起三个月了。一次深夜的电话里，对方忽然说：'我觉得自己配不上你。'语气很认真，不像是在撒娇。",
+          "options": [
+            {
+              "id": "A",
+              "text": "心疼地说'你怎么会这么想？在我眼里你很好'。想立刻让对方安心。",
+              "scores": { "expression_intensity": 6, "intimacy_pace": 4, "commitment_depth": 5, "security_baseline": 3 }
+            },
+            {
+              "id": "B",
+              "text": "认真地问对方为什么这么觉得。你想理解背后的原因，而不只是安慰表面。",
+              "scores": { "growth_orientation": 7, "expression_intensity": 3, "security_baseline": 4, "commitment_depth": 4 }
+            },
+            {
+              "id": "C",
+              "text": "内心有点警觉。这种话有时候是在试探你，或者是为分手做铺垫。",
+              "scores": { "security_baseline": -6, "commitment_depth": -3, "growth_orientation": -2, "conflict_style": 2 }
+            },
+            {
+              "id": "D",
+              "text": "沉默几秒后说'配不配得上不是单方面决定的，我选择了你，这就够了'。",
+              "scores": { "security_baseline": 5, "commitment_depth": 6, "expression_intensity": 5, "growth_orientation": 3 }
+            }
+          ],
+          "media_hint": "深夜卧室里手机屏幕的微光，通话中的画面"
+        },
+        {
+          "id": "ch1_q13",
+          "chapter": 1,
+          "scene_text": "你和伴侣第一次一起出门旅行，到了酒店发现只剩一间大床房了。你们之前还没有过肢体上更进一步的亲密。前台在等你们的决定。",
+          "options": [
+            {
+              "id": "A",
+              "text": "看着对方说'你觉得可以吗？'把决定权交给对方，尊重双方的节奏。",
+              "scores": { "intimacy_pace": 2, "expression_intensity": 1, "autonomy_need": 2, "security_baseline": 3 }
+            },
+            {
+              "id": "B",
+              "text": "爽快地说'没关系啊'。到了这个阶段，自然一点就好，不必过度解读。",
+              "scores": { "intimacy_pace": 6, "security_baseline": 6, "expression_intensity": 3, "autonomy_need": -1 }
+            },
+            {
+              "id": "C",
+              "text": "坚持让前台再找找，或者换一家酒店。你不想因为客观因素打乱自己的节奏。",
+              "scores": { "intimacy_pace": -6, "autonomy_need": 7, "conflict_style": 3, "expression_intensity": 2 }
+            },
+            {
+              "id": "D",
+              "text": "有点尴尬但不想让气氛变奇怪，开个玩笑缓解一下，说'那我睡地上？'",
+              "scores": { "intimacy_pace": -2, "expression_intensity": -1, "conflict_style": -3, "security_baseline": -1 }
+            }
+          ],
+          "media_hint": "酒店前台的大理石台面，两人的行李箱并排放在一起"
+        },
+        {
+          "id": "ch1_q14",
+          "chapter": 1,
+          "scene_text": "你发现自己开始不由自主地和朋友说起这个人——聊到对方时会不自觉地笑，会翻看之前的聊天记录。你意识到自己正在陷入深深的喜欢。",
+          "options": [
+            {
+              "id": "A",
+              "text": "享受这种感觉。喜欢一个人是件幸福的事，不需要控制它。",
+              "scores": { "expression_intensity": 6, "intimacy_pace": 5, "commitment_depth": 5, "security_baseline": 4 }
+            },
+            {
+              "id": "B",
+              "text": "开心但有点慌。上一次这样的感觉，最后受了很深的伤。你决定克制一下。",
+              "scores": { "security_baseline": -5, "commitment_depth": -3, "intimacy_pace": -4, "growth_orientation": 1 }
+            },
+            {
+              "id": "C",
+              "text": "理性地提醒自己不要'上头'。感情需要时间验证，现在下结论为时过早。",
+              "scores": { "intimacy_pace": -4, "commitment_depth": -2, "autonomy_need": 5, "growth_orientation": 3 }
+            },
+            {
+              "id": "D",
+              "text": "忍不住直接告诉对方你的感觉。'我发现我好像很喜欢你。'不喜欢藏着掖着。",
+              "scores": { "expression_intensity": 9, "intimacy_pace": 8, "conflict_style": 3, "commitment_depth": 4 }
+            }
+          ],
+          "media_hint": "手机屏幕上的聊天记录在缓缓上滑，背景配着心跳声"
+        },
+        {
+          "id": "ch1_q15",
+          "chapter": 1,
+          "scene_text": "你的伴侣在认识你之前就计划好了一个为期两周的独自旅行。你们刚在一起一个月，出发的日子就快到了。对方问你介不介意。",
+          "options": [
+            {
+              "id": "A",
+              "text": "'当然不介意，这是你早就计划好的，好好享受。'真心支持对方去。",
+              "scores": { "autonomy_need": 7, "security_baseline": 6, "commitment_depth": 3, "intimacy_pace": -1 }
+            },
+            {
+              "id": "B",
+              "text": "'不介意，但我会想你的。'坦诚自己的感受，同时也支持对方的计划。",
+              "scores": { "expression_intensity": 6, "autonomy_need": 3, "security_baseline": 4, "commitment_depth": 5 }
+            },
+            {
+              "id": "C",
+              "text": "嘴上说不介意，但心里有点担心。两周不见面，刚建立的感情会不会冷却？",
+              "scores": { "security_baseline": -4, "autonomy_need": -2, "expression_intensity": -4, "commitment_depth": 2 }
+            },
+            {
+              "id": "D",
+              "text": "委婉地提议'要不我也一起去？正好我最近也想出去走走。'",
+              "scores": { "autonomy_need": -6, "intimacy_pace": 6, "commitment_depth": 4, "security_baseline": -2 }
+            }
+          ],
+          "media_hint": "一个打开的行李箱和桌上的护照，窗外是晴朗的天空"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "磨合",
+      "subtitle": "Adjusting",
+      "description": "当激情退去，你如何经营关系的日常",
+      "questions": [
+        {
+          "id": "ch2_q01",
+          "chapter": 2,
+          "scene_text": "你和伴侣同居半年了。今天你回到家，发现客厅又是一片混乱——衣服扔在沙发上，外卖盒还留在茶几上。你已经提过很多次了。",
+          "options": [
+            {
+              "id": "A",
+              "text": "深呼吸，忍住火气，默默地收拾了。不想因为这种小事吵架。",
+              "scores": { "conflict_style": -6, "expression_intensity": -5, "autonomy_need": -3, "growth_orientation": -3 }
+            },
+            {
+              "id": "B",
+              "text": "直接叫伴侣过来：'我们说好的事情你做不到，我很不开心。你现在来收拾。'",
+              "scores": { "conflict_style": 7, "expression_intensity": 6, "autonomy_need": 3, "growth_orientation": 3 }
+            },
+            {
+              "id": "C",
+              "text": "冷静地坐下来，等伴侣注意到你的沉默。你不想主动开口，但你的态度已经说明了一切。",
+              "scores": { "conflict_style": -3, "expression_intensity": -4, "security_baseline": -3, "growth_orientation": -2 }
+            },
+            {
+              "id": "D",
+              "text": "提议一起制定一个家务分工表，贴在冰箱上。与其每次生气，不如解决根本问题。",
+              "scores": { "growth_orientation": 7, "conflict_style": 4, "expression_intensity": 3, "security_baseline": 4 }
+            }
+          ],
+          "media_hint": "凌乱的客厅，打开的门和门口放下的包"
+        },
+        {
+          "id": "ch2_q02",
+          "chapter": 2,
+          "scene_text": "你的伴侣升职了，最近每天加班到很晚。你为对方高兴，但已经连续两周每天只能在睡前说上几句话了。今晚对方又打电话说要加班。",
+          "options": [
+            {
+              "id": "A",
+              "text": "'没关系，注意身体，我等你回来。'你理解这只是一个阶段。",
+              "scores": { "autonomy_need": 4, "security_baseline": 4, "expression_intensity": -2, "commitment_depth": 4 }
+            },
+            {
+              "id": "B",
+              "text": "'我支持你的事业，但我需要你知道我很想你。今天能不能早一点回来？'",
+              "scores": { "expression_intensity": 6, "conflict_style": 2, "autonomy_need": -2, "commitment_depth": 5 }
+            },
+            {
+              "id": "C",
+              "text": "开始怀疑对方是不是真的在加班。两周了，真的有那么忙吗？",
+              "scores": { "security_baseline": -7, "autonomy_need": -3, "growth_orientation": -3, "conflict_style": 1 }
+            },
+            {
+              "id": "D",
+              "text": "也把自己的时间安排满。你不想让自己的生活完全围着对方转。",
+              "scores": { "autonomy_need": 7, "security_baseline": 3, "intimacy_pace": -3, "growth_orientation": 4 }
+            }
+          ],
+          "media_hint": "空荡荡的餐桌上一份只吃了一半的饭，窗外是城市夜景"
+        },
+        {
+          "id": "ch2_q03",
+          "chapter": 2,
+          "scene_text": "你们吵架了。起因已经不重要了，但你的伴侣说了一句话深深刺痛了你：'你有时候真的很自私。'说完对方摔门出去了。房间里只剩下你和回荡的寂静。",
+          "options": [
+            {
+              "id": "A",
+              "text": "发消息过去：'你说的话伤到我了。等你冷静了我们谈。'然后放下手机。",
+              "scores": { "conflict_style": 3, "expression_intensity": 5, "security_baseline": 3, "growth_orientation": 5 }
+            },
+            {
+              "id": "B",
+              "text": "追出去。不管谁对谁错，你不想让对方一个人带着怒气在外面。",
+              "scores": { "commitment_depth": 6, "intimacy_pace": 5, "expression_intensity": 4, "autonomy_need": -5 }
+            },
+            {
+              "id": "C",
+              "text": "坐在原地，越想越觉得对方说得也许有道理。开始反思自己是不是真的自私。",
+              "scores": { "security_baseline": -5, "growth_orientation": 3, "conflict_style": -4, "expression_intensity": -3 }
+            },
+            {
+              "id": "D",
+              "text": "生气。'自私？你才自私。'内心已经开始准备下一轮的反驳论点了。",
+              "scores": { "conflict_style": 8, "expression_intensity": 5, "security_baseline": -2, "growth_orientation": -4 }
+            }
+          ],
+          "media_hint": "门关上后的空房间，沙发上散落的靠枕"
+        },
+        {
+          "id": "ch2_q04",
+          "chapter": 2,
+          "scene_text": "伴侣最近养成了一个习惯——每晚睡前刷手机刷到很晚，你试图搂着对方说话，但对方只是敷衍地'嗯嗯'。这已经持续了几个月。",
+          "options": [
+            {
+              "id": "A",
+              "text": "直接拿过对方的手机扣在枕头下，半开玩笑地说'手机里有什么比我好看的？'",
+              "scores": { "expression_intensity": 5, "conflict_style": 3, "intimacy_pace": 4, "autonomy_need": -4 }
+            },
+            {
+              "id": "B",
+              "text": "选一个白天的时间认真谈这件事。你觉得这不只是手机的问题，而是你们之间的连接在减弱。",
+              "scores": { "growth_orientation": 7, "expression_intensity": 5, "conflict_style": 4, "commitment_depth": 5 }
+            },
+            {
+              "id": "C",
+              "text": "也开始刷自己的手机。既然对方不想交流，那你也不必热脸贴冷屁股。",
+              "scores": { "conflict_style": -4, "expression_intensity": -5, "growth_orientation": -4, "security_baseline": -3 }
+            },
+            {
+              "id": "D",
+              "text": "每晚你先睡，不再等对方。你尊重对方的习惯，同时也不让自己的作息被影响。",
+              "scores": { "autonomy_need": 6, "security_baseline": 2, "expression_intensity": -3, "conflict_style": -1 }
+            }
+          ],
+          "media_hint": "暗淡的卧室里，手机屏幕的蓝光映在两个背对的人脸上"
+        },
+        {
+          "id": "ch2_q05",
+          "chapter": 2,
+          "scene_text": "你偶然看到伴侣的手机弹出一条消息通知，是一个你不认识的异性发来的，内容写着'今天很开心，下次再约'。你的伴侣正在洗澡。",
+          "options": [
+            {
+              "id": "A",
+              "text": "没什么好看的，你信任对方。等对方出来后也不打算提这件事。",
+              "scores": { "security_baseline": 7, "autonomy_need": 5, "conflict_style": -3, "expression_intensity": -3 }
+            },
+            {
+              "id": "B",
+              "text": "等对方出来后轻描淡写地提一句：'刚才你手机响了，好像有人约你？'给对方机会主动解释。",
+              "scores": { "expression_intensity": 3, "conflict_style": 2, "security_baseline": 1, "growth_orientation": 3 }
+            },
+            {
+              "id": "C",
+              "text": "心里翻江倒海，但假装什么都没看到。接下来几天会特别留意对方的行为。",
+              "scores": { "security_baseline": -6, "expression_intensity": -5, "conflict_style": -5, "autonomy_need": -2 }
+            },
+            {
+              "id": "D",
+              "text": "等对方出来后直接问清楚：'这个人是谁？你们约了什么？'你不喜欢猜来猜去。",
+              "scores": { "conflict_style": 7, "expression_intensity": 6, "security_baseline": -1, "commitment_depth": 3 }
+            }
+          ],
+          "media_hint": "浴室门缝透出的灯光和雾气，前景是亮着屏幕的手机"
+        },
+        {
+          "id": "ch2_q06",
+          "chapter": 2,
+          "shadow_pair_id": "sp2",
+          "scene_text": "你伴侣的妈妈来家里住了一周。她对你们的生活方式有很多'建议'——从做饭的口味到家居摆设，甚至你们几点睡觉。你的伴侣在旁边一言不发。",
+          "options": [
+            {
+              "id": "A",
+              "text": "忍。这是对方的妈妈，也就住一周而已。为了伴侣，这点委屈你可以受。",
+              "scores": { "conflict_style": -6, "expression_intensity": -4, "autonomy_need": -5, "commitment_depth": 3 }
+            },
+            {
+              "id": "B",
+              "text": "私下找伴侣严肃地谈：'你需要在你妈妈面前表明你的立场，这是我们的家。'",
+              "scores": { "conflict_style": 5, "expression_intensity": 5, "autonomy_need": 6, "growth_orientation": 5 }
+            },
+            {
+              "id": "C",
+              "text": "自己直接跟对方妈妈客气但坚定地划边界：'阿姨，我们有自己的生活习惯。'",
+              "scores": { "conflict_style": 7, "autonomy_need": 7, "expression_intensity": 6, "security_baseline": 4 }
+            },
+            {
+              "id": "D",
+              "text": "用行动抗议——对方妈妈在的时候你就多在外面待着，减少正面冲突。",
+              "scores": { "conflict_style": -3, "autonomy_need": 4, "expression_intensity": -5, "growth_orientation": -3 }
+            }
+          ],
+          "media_hint": "厨房里三个人，一个在指挥，一个在做饭，一个站在门口"
+        },
+        {
+          "id": "ch2_q07",
+          "chapter": 2,
+          "shadow_pair_id": "sp1",
+          "scene_text": "你和伴侣在一起八个月了。最近你注意到对方回消息越来越慢，有时候隔几个小时才回。以前不是这样的。",
+          "options": [
+            {
+              "id": "A",
+              "text": "关系稳定了嘛，不可能永远像热恋那样秒回。这很正常，不用过度解读。",
+              "scores": { "security_baseline": 6, "autonomy_need": 5, "intimacy_pace": -2, "growth_orientation": 3 }
+            },
+            {
+              "id": "B",
+              "text": "找个时间和对方聊聊：'我注意到你最近回消息变慢了，有什么事吗？'",
+              "scores": { "expression_intensity": 4, "conflict_style": 3, "security_baseline": 1, "growth_orientation": 5 }
+            },
+            {
+              "id": "C",
+              "text": "你也开始有意拉长回复的间隔。不想做那个在关系里更在乎的人。",
+              "scores": { "security_baseline": -4, "expression_intensity": -5, "growth_orientation": -4, "conflict_style": -2 }
+            },
+            {
+              "id": "D",
+              "text": "心里开始有不好的预感。是不是新鲜感过了？对方是不是在考虑退出？",
+              "scores": { "security_baseline": -7, "commitment_depth": -3, "autonomy_need": -3, "expression_intensity": -2 }
+            }
+          ],
+          "media_hint": "手机上的对话记录，时间间隔从几分钟渐变到几小时"
+        },
+        {
+          "id": "ch2_q08",
+          "chapter": 2,
+          "scene_text": "你的伴侣告诉你，这个周末想和几个朋友去酒吧，其中有几个你不太喜欢的人，包括一个你觉得对你的伴侣有好感的异性朋友。",
+          "options": [
+            {
+              "id": "A",
+              "text": "'去吧，玩得开心。'你信任对方的判断，伴侣的社交圈不需要你来审批。",
+              "scores": { "security_baseline": 7, "autonomy_need": 6, "conflict_style": -2, "commitment_depth": 3 }
+            },
+            {
+              "id": "B",
+              "text": "说'我也想去'。不一定是不信任，只是你也想参与对方的社交生活。",
+              "scores": { "autonomy_need": -4, "security_baseline": -1, "intimacy_pace": 4, "commitment_depth": 3 }
+            },
+            {
+              "id": "C",
+              "text": "坦诚地说你对其中某个人不太放心，问对方能不能理解你的感受。",
+              "scores": { "expression_intensity": 5, "conflict_style": 4, "security_baseline": -3, "growth_orientation": 4 }
+            },
+            {
+              "id": "D",
+              "text": "不说什么，但心里决定等对方回来后看看状态再说。如果有可疑的地方再谈。",
+              "scores": { "conflict_style": -4, "expression_intensity": -5, "security_baseline": -5, "growth_orientation": -3 }
+            }
+          ],
+          "media_hint": "酒吧的霓虹灯招牌倒映在地面的积水中"
+        },
+        {
+          "id": "ch2_q09",
+          "chapter": 2,
+          "scene_text": "你的伴侣在朋友聚餐上当众开了一个关于你的玩笑，大家都笑了。你知道对方没有恶意，但那个笑话确实让你有点丢面子。",
+          "options": [
+            {
+              "id": "A",
+              "text": "也回一个关于对方的玩笑，四两拨千斤。这种事用幽默化解就好。",
+              "scores": { "expression_intensity": 3, "conflict_style": 1, "security_baseline": 4, "growth_orientation": 2 }
+            },
+            {
+              "id": "B",
+              "text": "当场笑着但回家后告诉对方你的真实感受：'那个笑话让我不太舒服。'",
+              "scores": { "expression_intensity": 5, "conflict_style": 3, "growth_orientation": 5, "security_baseline": 3 }
+            },
+            {
+              "id": "C",
+              "text": "假装无所谓，把这件事吞下去。上升到'沟通感受'未免太上纲上线了。",
+              "scores": { "conflict_style": -5, "expression_intensity": -5, "growth_orientation": -3, "security_baseline": -1 }
+            },
+            {
+              "id": "D",
+              "text": "当场脸就沉下来了。你控制不住自己的情绪反应，在座的人也看出了气氛变化。",
+              "scores": { "expression_intensity": 6, "conflict_style": 5, "security_baseline": -3, "autonomy_need": 2 }
+            }
+          ],
+          "media_hint": "饭桌上众人大笑的场景，一个人的笑容略显僵硬"
+        },
+        {
+          "id": "ch2_q10",
+          "chapter": 2,
+          "shadow_pair_id": "sp3",
+          "scene_text": "你和伴侣在一个重要决定上意见相左——要不要养一只猫。你非常想养，但对方坚决反对，理由是过敏加上生活习惯。双方都不肯让步。",
+          "options": [
+            {
+              "id": "A",
+              "text": "放弃养猫。两个人的关系比一只猫重要，这不值得变成一场战争。",
+              "scores": { "conflict_style": -5, "commitment_depth": 5, "autonomy_need": -5, "growth_orientation": -2 }
+            },
+            {
+              "id": "B",
+              "text": "提出折中方案——先去朋友家体验一下，或者选一个低敏品种试试。",
+              "scores": { "growth_orientation": 6, "conflict_style": 3, "expression_intensity": 3, "commitment_depth": 4 }
+            },
+            {
+              "id": "C",
+              "text": "觉得在重要的事情上双方应该有各自的决定权。这个家不只是对方一个人的。",
+              "scores": { "autonomy_need": 6, "conflict_style": 6, "expression_intensity": 4, "commitment_depth": -1 }
+            },
+            {
+              "id": "D",
+              "text": "先答应不养，但心里有些不平衡。凭什么每次都是你让步？这个账会记着。",
+              "scores": { "conflict_style": -3, "expression_intensity": -4, "security_baseline": -4, "growth_orientation": -4 }
+            }
+          ],
+          "media_hint": "客厅里一只猫的玩具和一盒抗过敏药并排放着"
+        },
+        {
+          "id": "ch2_q11",
+          "chapter": 2,
+          "scene_text": "周末早上，你想出去hiking，但伴侣只想窝在沙发上看剧。你们已经连续三个周末宅在家了。",
+          "options": [
+            {
+              "id": "A",
+              "text": "自己去。你不需要伴侣陪着才能享受户外活动，各做各的也挺好。",
+              "scores": { "autonomy_need": 8, "security_baseline": 5, "intimacy_pace": -3, "expression_intensity": -1 }
+            },
+            {
+              "id": "B",
+              "text": "留下来陪对方看剧。周末就是用来放松的，在一起比做什么更重要。",
+              "scores": { "autonomy_need": -5, "commitment_depth": 4, "intimacy_pace": 3, "conflict_style": -3 }
+            },
+            {
+              "id": "C",
+              "text": "协商一下：'这周陪我出去，下周陪你看剧。'公平轮流来。",
+              "scores": { "growth_orientation": 5, "conflict_style": 3, "expression_intensity": 3, "commitment_depth": 4 }
+            },
+            {
+              "id": "D",
+              "text": "有些不满地说'你能不能别天天这么宅'。觉得对方应该多运动，对身体也好。",
+              "scores": { "conflict_style": 5, "expression_intensity": 4, "autonomy_need": 2, "growth_orientation": -2 }
+            }
+          ],
+          "media_hint": "窗外阳光明媚的山景和室内昏暗的电视机形成对比"
+        },
+        {
+          "id": "ch2_q12",
+          "chapter": 2,
+          "scene_text": "你的伴侣最近迷上了一个新爱好——摄影。每个周末都出去拍照，还加入了一个摄影群，里面有不少异性。你对摄影完全没兴趣。",
+          "options": [
+            {
+              "id": "A",
+              "text": "很高兴对方有自己的热情。你也可以利用这些时间做自己喜欢的事。",
+              "scores": { "autonomy_need": 7, "security_baseline": 6, "growth_orientation": 4, "commitment_depth": 2 }
+            },
+            {
+              "id": "B",
+              "text": "试着去了解摄影，也许能发现其中的乐趣。和伴侣有共同语言是一件好事。",
+              "scores": { "commitment_depth": 5, "growth_orientation": 6, "autonomy_need": -3, "intimacy_pace": 3 }
+            },
+            {
+              "id": "C",
+              "text": "不介意爱好，但摄影群里那些异性让你有点在意。你会偶尔问问群里都聊些什么。",
+              "scores": { "security_baseline": -4, "autonomy_need": -3, "expression_intensity": 1, "conflict_style": 1 }
+            },
+            {
+              "id": "D",
+              "text": "抱怨对方把所有业余时间都给了摄影。'你还记得你有男/女朋友吗？'",
+              "scores": { "autonomy_need": -5, "conflict_style": 4, "expression_intensity": 5, "security_baseline": -3 }
+            }
+          ],
+          "media_hint": "一台相机和一堆照片散落在桌上，旁边是两杯未喝完的茶"
+        },
+        {
+          "id": "ch2_q13",
+          "chapter": 2,
+          "scene_text": "你的伴侣生病了，高烧39度，在床上有气无力。但你今天有一个非常重要的工作汇报，准备了两周，不能缺席。",
+          "options": [
+            {
+              "id": "A",
+              "text": "请假在家照顾对方。工作的机会还有，生病的伴侣此刻最需要你。",
+              "scores": { "commitment_depth": 7, "autonomy_need": -5, "intimacy_pace": 4, "expression_intensity": 4 }
+            },
+            {
+              "id": "B",
+              "text": "准备好药和食物，叮嘱对方好好休息，然后去上班。中午抽空回来看一趟。",
+              "scores": { "autonomy_need": 4, "commitment_depth": 4, "growth_orientation": 4, "security_baseline": 4 }
+            },
+            {
+              "id": "C",
+              "text": "叫对方的家人或好朋友来帮忙照顾一下，自己安心去上班。",
+              "scores": { "autonomy_need": 5, "growth_orientation": 3, "commitment_depth": 2, "expression_intensity": -1 }
+            },
+            {
+              "id": "D",
+              "text": "内心很纠结，两边都割舍不下。最后哪个都没做好，一边上班一边担心。",
+              "scores": { "security_baseline": -3, "commitment_depth": 2, "autonomy_need": -2, "conflict_style": -3 }
+            }
+          ],
+          "media_hint": "床头的温度计显示39度，旁边是西装革履的衣服挂在衣架上"
+        },
+        {
+          "id": "ch2_q14",
+          "chapter": 2,
+          "scene_text": "你无意中发现伴侣一直在偷偷给你存钱，为你们的未来攒一笔旅行基金。你完全不知道这件事。",
+          "options": [
+            {
+              "id": "A",
+              "text": "感动到眼眶湿润。这种默默付出的爱是最打动你的。你决定也开始悄悄为对方做一件事。",
+              "scores": { "expression_intensity": 5, "commitment_depth": 6, "intimacy_pace": 4, "security_baseline": 5 }
+            },
+            {
+              "id": "B",
+              "text": "很感动，但也有点不安。你希望在财务上是透明的，不管出发点多好。",
+              "scores": { "autonomy_need": 4, "growth_orientation": 4, "conflict_style": 2, "security_baseline": 1 }
+            },
+            {
+              "id": "C",
+              "text": "开心之余有一丝复杂——你不喜欢被隐瞒，哪怕是善意的。信任建立在透明之上。",
+              "scores": { "security_baseline": -2, "conflict_style": 4, "autonomy_need": 5, "growth_orientation": 5 }
+            },
+            {
+              "id": "D",
+              "text": "高兴地和对方摊牌：'我发现了你的小秘密！'然后提议一起规划这笔钱的用途。",
+              "scores": { "expression_intensity": 7, "intimacy_pace": 5, "commitment_depth": 5, "growth_orientation": 4 }
+            }
+          ],
+          "media_hint": "一个隐藏在书架后面的信封，里面装着存折和写着'我们的旅行'的纸条"
+        },
+        {
+          "id": "ch2_q15",
+          "chapter": 2,
+          "scene_text": "你和伴侣大吵一架后冷战了三天。谁都没有先开口。第三天晚上，你在厨房倒水，正好和从卧室出来的伴侣四目相对。空气里还有火药味。",
+          "options": [
+            {
+              "id": "A",
+              "text": "先开口说'我们谈谈吧'。三天够了，再耗下去伤的是感情本身。",
+              "scores": { "conflict_style": 4, "growth_orientation": 6, "commitment_depth": 5, "expression_intensity": 4 }
+            },
+            {
+              "id": "B",
+              "text": "倒了两杯水，递给对方一杯。不说话，但这个动作本身就是在递橄榄枝。",
+              "scores": { "expression_intensity": -1, "commitment_depth": 4, "conflict_style": -1, "security_baseline": 3 }
+            },
+            {
+              "id": "C",
+              "text": "低头走过去，不看对方。你还没准备好谈。你需要对方先承认错误。",
+              "scores": { "conflict_style": -4, "expression_intensity": -4, "security_baseline": -3, "growth_orientation": -4 }
+            },
+            {
+              "id": "D",
+              "text": "看着对方说'我还在生气，但我更怕失去你'。先表达感受，再解决问题。",
+              "scores": { "expression_intensity": 8, "security_baseline": 3, "commitment_depth": 6, "growth_orientation": 5 }
+            }
+          ],
+          "media_hint": "昏暗的厨房里，两个人隔着一个岛台对视"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "深水",
+      "subtitle": "Deep Water",
+      "description": "在生命的重大时刻，你内心深处的声音",
+      "questions": [
+        {
+          "id": "ch3_q01",
+          "chapter": 3,
+          "scene_text": "你的伴侣接到了一个外地的工作机会，薪资翻倍，但需要两地分居至少一年。对方说：'你觉得我们能扛过去吗？'你在深夜的灯下对视。",
+          "options": [
+            {
+              "id": "A",
+              "text": "'当然能。一年算什么，我等你。'你的爱不会被距离打败。",
+              "scores": { "commitment_depth": 8, "security_baseline": 5, "autonomy_need": -2, "expression_intensity": 5 }
+            },
+            {
+              "id": "B",
+              "text": "'我支持你的发展，但说实话，异地恋很难。我们需要制定具体的计划。'",
+              "scores": { "growth_orientation": 7, "commitment_depth": 5, "security_baseline": 3, "expression_intensity": 4 }
+            },
+            {
+              "id": "C",
+              "text": "沉默了很久。你不确定自己能不能承受一年的分离。你也有你的需求。",
+              "scores": { "security_baseline": -3, "commitment_depth": -2, "autonomy_need": 4, "expression_intensity": -3 }
+            },
+            {
+              "id": "D",
+              "text": "'如果你去的话......我们的关系怎么办？'你需要对方给你一个确定的答案。",
+              "scores": { "security_baseline": -5, "expression_intensity": 3, "commitment_depth": 2, "autonomy_need": -4 }
+            }
+          ],
+          "media_hint": "深夜的台灯下，两个人的影子投在墙上，一份工作offer放在桌上"
+        },
+        {
+          "id": "ch3_q02",
+          "chapter": 3,
+          "scene_text": "你无意间发现伴侣的手机里有一段和前任的通话记录，时间就在上周。你的伴侣从来没提过和前任还有联系。",
+          "options": [
+            {
+              "id": "A",
+              "text": "深呼吸。你选择相信对方，但你会找个时间坦诚地问。每个人都有解释的权利。",
+              "scores": { "security_baseline": 3, "conflict_style": 3, "growth_orientation": 5, "expression_intensity": 3 }
+            },
+            {
+              "id": "B",
+              "text": "心直口快地说'你上周和前任打电话了？'直接摊开，你受不了猜忌的煎熬。",
+              "scores": { "conflict_style": 7, "expression_intensity": 7, "security_baseline": -2, "autonomy_need": 2 }
+            },
+            {
+              "id": "C",
+              "text": "先冷静分析。也许只是普通的事务联系，不一定有什么。但你会暗中多留意。",
+              "scores": { "security_baseline": -4, "conflict_style": -3, "expression_intensity": -4, "growth_orientation": -2 }
+            },
+            {
+              "id": "D",
+              "text": "被背叛的感觉瞬间涌上来。你觉得隐瞒本身就是一种欺骗，不管内容是什么。",
+              "scores": { "security_baseline": -6, "conflict_style": 5, "commitment_depth": -3, "expression_intensity": 4 }
+            }
+          ],
+          "media_hint": "手机通话记录页面的特写，一个名字被高亮"
+        },
+        {
+          "id": "ch3_q03",
+          "chapter": 3,
+          "scene_text": "你们在一起两年了，伴侣的父母邀请你去家里过春节。这意味着你可能要面对'你们打算什么时候结婚'这种问题。",
+          "options": [
+            {
+              "id": "A",
+              "text": "欣然接受。见家长是自然的下一步，你已经准备好了。那些问题你们可以一起面对。",
+              "scores": { "commitment_depth": 7, "intimacy_pace": 5, "security_baseline": 5, "expression_intensity": 2 }
+            },
+            {
+              "id": "B",
+              "text": "去，但提前和伴侣商量好'统一口径'。你不想被逼到墙角做出自己没准备好的承诺。",
+              "scores": { "commitment_depth": 3, "growth_orientation": 4, "autonomy_need": 4, "conflict_style": 2 }
+            },
+            {
+              "id": "C",
+              "text": "找个理由回避这次。你觉得两年还太早，不想给双方家庭制造不必要的期待。",
+              "scores": { "commitment_depth": -5, "intimacy_pace": -5, "autonomy_need": 6, "conflict_style": -3 }
+            },
+            {
+              "id": "D",
+              "text": "内心很矛盾。你想去，但一想到被催婚就焦虑。你不确定自己对'未来'是什么想法。",
+              "scores": { "security_baseline": -4, "commitment_depth": -2, "expression_intensity": -2, "growth_orientation": 1 }
+            }
+          ],
+          "media_hint": "一张贴着红色春联的家门，门口放着两双拖鞋"
+        },
+        {
+          "id": "ch3_q04",
+          "chapter": 3,
+          "shadow_pair_id": "sp4",
+          "scene_text": "你的伴侣经历了一次重大失败——创业项目崩盘，欠了一笔债。对方变得沉默寡言，不愿意出门，也不太和你说话。你眼看着对方一天天消沉下去。",
+          "options": [
+            {
+              "id": "A",
+              "text": "每天陪在身边，不强迫对方说话，但让对方知道你一直都在。用行动而不是语言。",
+              "scores": { "commitment_depth": 7, "expression_intensity": -1, "security_baseline": 5, "autonomy_need": -3 }
+            },
+            {
+              "id": "B",
+              "text": "帮对方分析问题，一起想出路。低谷不可怕，可怕的是停在原地。你想拉对方往前走。",
+              "scores": { "growth_orientation": 7, "commitment_depth": 5, "conflict_style": 3, "expression_intensity": 4 }
+            },
+            {
+              "id": "C",
+              "text": "给对方空间，同时坦白说'你这样让我很担心也很无力'。你也有你的情绪需要被看到。",
+              "scores": { "expression_intensity": 6, "autonomy_need": 4, "growth_orientation": 4, "security_baseline": 2 }
+            },
+            {
+              "id": "D",
+              "text": "心里开始犹豫这段关系的前景。你能接受一个在困难面前不振作的伴侣吗？",
+              "scores": { "commitment_depth": -5, "security_baseline": -3, "growth_orientation": 2, "autonomy_need": 5 }
+            }
+          ],
+          "media_hint": "一个人坐在沙发上看着窗外的雨，另一个人站在身后不知该不该靠近"
+        },
+        {
+          "id": "ch3_q05",
+          "chapter": 3,
+          "scene_text": "你的伴侣希望你们的积蓄用来买房，在这个城市扎下根。但你内心一直有一个梦想——用一年时间去国外生活一段时间。两个人对'未来的样子'有着截然不同的想象。",
+          "options": [
+            {
+              "id": "A",
+              "text": "先买房吧。你的梦想可以延后，稳定的生活基础是一切的前提。",
+              "scores": { "commitment_depth": 5, "growth_orientation": -4, "autonomy_need": -5, "conflict_style": -3 }
+            },
+            {
+              "id": "B",
+              "text": "提出先去一年再回来买房。两件事不一定矛盾，人生不只有一种时间表。",
+              "scores": { "growth_orientation": 7, "autonomy_need": 5, "conflict_style": 3, "expression_intensity": 4 }
+            },
+            {
+              "id": "C",
+              "text": "这个分歧让你意识到你们对生活的底层逻辑可能不同。你需要认真思考这种差异是否能调和。",
+              "scores": { "growth_orientation": 5, "commitment_depth": -2, "security_baseline": -2, "autonomy_need": 5 }
+            },
+            {
+              "id": "D",
+              "text": "放弃自己的想法但心里留下一根刺。也许将来某天你会后悔没坚持。",
+              "scores": { "conflict_style": -5, "expression_intensity": -5, "growth_orientation": -5, "security_baseline": -3 }
+            }
+          ],
+          "media_hint": "桌上并排放着一本房产手册和一本世界地图"
+        },
+        {
+          "id": "ch3_q06",
+          "chapter": 3,
+          "scene_text": "你的伴侣在一次深夜的对话中说：'有时候我觉得你不是真的爱我，只是习惯了我。'你能感觉到这不是在无理取闹，而是发自内心的脆弱。",
+          "options": [
+            {
+              "id": "A",
+              "text": "心被狠狠揪了一下。你放下一切，认真地看着对方说出你的感受。也许你确实表达得太少了。",
+              "scores": { "expression_intensity": 7, "commitment_depth": 6, "growth_orientation": 6, "security_baseline": 3 }
+            },
+            {
+              "id": "B",
+              "text": "觉得这种质疑不公平。你默默做了那么多，为什么还要被这样评价？有些受伤。",
+              "scores": { "expression_intensity": -2, "conflict_style": 3, "security_baseline": -4, "growth_orientation": -2 }
+            },
+            {
+              "id": "C",
+              "text": "沉默。不知道该说什么。因为你自己也不确定，是爱还是习惯。",
+              "scores": { "commitment_depth": -4, "expression_intensity": -5, "security_baseline": -3, "intimacy_pace": -4 }
+            },
+            {
+              "id": "D",
+              "text": "拥抱对方，然后说'那我们一起找回那种感觉'。爱需要经营，你愿意为此努力。",
+              "scores": { "commitment_depth": 7, "growth_orientation": 7, "expression_intensity": 5, "intimacy_pace": 4 }
+            }
+          ],
+          "media_hint": "深夜的卧室，一盏小灯，两个人坐在床沿相对"
+        },
+        {
+          "id": "ch3_q07",
+          "chapter": 3,
+          "shadow_pair_id": "sp5",
+          "scene_text": "你的伴侣因为家庭变故需要一大笔钱。对方犹豫了很久才告诉你，眼睛红红的说：'我不想问你借钱，但我真的走投无路了。'你有这笔积蓄。",
+          "options": [
+            {
+              "id": "A",
+              "text": "二话不说转过去。在你心里，什么是你的就是我们的，不需要分那么清。",
+              "scores": { "commitment_depth": 8, "autonomy_need": -5, "security_baseline": 5, "expression_intensity": 3 }
+            },
+            {
+              "id": "B",
+              "text": "愿意帮，但提出写一个借条。这不是不信任，而是保护你们的关系。钱和感情分开更健康。",
+              "scores": { "autonomy_need": 6, "growth_orientation": 5, "commitment_depth": 3, "security_baseline": 3 }
+            },
+            {
+              "id": "C",
+              "text": "帮一部分，留一部分给自己。你可以慷慨，但不能让自己完全没有退路。",
+              "scores": { "autonomy_need": 5, "security_baseline": 1, "commitment_depth": 2, "growth_orientation": 3 }
+            },
+            {
+              "id": "D",
+              "text": "心情很复杂。你想帮，但也怕这会改变你们的关系。以前朋友借钱的教训让你犹豫。",
+              "scores": { "security_baseline": -5, "commitment_depth": -2, "expression_intensity": -3, "conflict_style": -2 }
+            }
+          ],
+          "media_hint": "一双握紧的手和一张揉皱的银行对账单"
+        },
+        {
+          "id": "ch3_q08",
+          "chapter": 3,
+          "scene_text": "你在一次体检中查出了一个需要进一步检查的健康问题，医生说大概率没事但不能排除最坏的可能。你坐在医院走廊里，手里攥着检查单。",
+          "options": [
+            {
+              "id": "A",
+              "text": "第一时间打给伴侣。你需要对方此刻在你身边。害怕一个人面对。",
+              "scores": { "expression_intensity": 6, "autonomy_need": -5, "intimacy_pace": 5, "commitment_depth": 5 }
+            },
+            {
+              "id": "B",
+              "text": "等结果出来再告诉对方。不想让对方跟着你一起担惊受怕，万一没事呢。",
+              "scores": { "autonomy_need": 6, "expression_intensity": -5, "security_baseline": 2, "conflict_style": -2 }
+            },
+            {
+              "id": "C",
+              "text": "先打给最亲密的朋友或家人，而不是伴侣。在最脆弱的时候，你本能地寻找最安全的人。",
+              "scores": { "security_baseline": -3, "commitment_depth": -3, "autonomy_need": 3, "intimacy_pace": -4 }
+            },
+            {
+              "id": "D",
+              "text": "谁也不说，自己消化。你不习惯把脆弱的一面展示给任何人。",
+              "scores": { "expression_intensity": -7, "autonomy_need": 8, "intimacy_pace": -5, "security_baseline": -2 }
+            }
+          ],
+          "media_hint": "医院走廊的白色灯光下，一个人低着头坐在长椅上"
+        },
+        {
+          "id": "ch3_q09",
+          "chapter": 3,
+          "scene_text": "你的伴侣向你坦白，在你们在一起的早期，有过一次emotional infidelity——和别人有过暧昧的聊天，但没有任何实质性的行为。对方说是因为愧疚才选择坦白。",
+          "options": [
+            {
+              "id": "A",
+              "text": "虽然震惊和痛苦，但感谢对方的坦诚。'你愿意告诉我，说明你重视这段关系。我需要时间消化。'",
+              "scores": { "growth_orientation": 7, "commitment_depth": 4, "security_baseline": 2, "expression_intensity": 4 }
+            },
+            {
+              "id": "B",
+              "text": "无法接受。暧昧聊天就是越线，你的底线非常明确。信任一旦破裂很难修复。",
+              "scores": { "conflict_style": 6, "commitment_depth": -4, "security_baseline": -4, "autonomy_need": 5 }
+            },
+            {
+              "id": "C",
+              "text": "陷入自我怀疑——是不是你做得不够好，对方才会向外找情感满足？",
+              "scores": { "security_baseline": -7, "expression_intensity": -2, "growth_orientation": -3, "autonomy_need": -4 }
+            },
+            {
+              "id": "D",
+              "text": "需要了解所有细节。'和谁？聊了多久？说了什么？'你必须知道全貌才能做判断。",
+              "scores": { "conflict_style": 5, "expression_intensity": 3, "security_baseline": -3, "growth_orientation": 1 }
+            }
+          ],
+          "media_hint": "两个人面对面坐着，一个人低着头，另一个人的表情从震惊到悲伤"
+        },
+        {
+          "id": "ch3_q10",
+          "chapter": 3,
+          "shadow_pair_id": "sp3",
+          "scene_text": "你和伴侣面临一个重大人生选择：要不要孩子。你不想要，伴侣非常想要。这个问题没有折中方案。你们在沉默中度过了好几个晚上。",
+          "options": [
+            {
+              "id": "A",
+              "text": "爱对方就愿意为对方改变。也许有了孩子之后你会发现新的人生意义。",
+              "scores": { "commitment_depth": 6, "autonomy_need": -7, "conflict_style": -4, "growth_orientation": 1 }
+            },
+            {
+              "id": "B",
+              "text": "这是不可调和的分歧。如果双方都无法改变，也许应该考虑是否还适合继续。",
+              "scores": { "autonomy_need": 7, "growth_orientation": 5, "commitment_depth": -4, "conflict_style": 5 }
+            },
+            {
+              "id": "C",
+              "text": "建议两个人一起去做婚姻咨询，让专业人士帮忙分析这个问题。",
+              "scores": { "growth_orientation": 7, "commitment_depth": 4, "expression_intensity": 3, "conflict_style": 2 }
+            },
+            {
+              "id": "D",
+              "text": "请求再给你一些时间。也许你的想法会变，也许不会。你还没准备好做最终决定。",
+              "scores": { "conflict_style": -3, "commitment_depth": 1, "security_baseline": -2, "expression_intensity": -2 }
+            }
+          ],
+          "media_hint": "空荡荡的儿童房间，墙上半贴着未完成的壁纸"
+        },
+        {
+          "id": "ch3_q11",
+          "chapter": 3,
+          "shadow_pair_id": "sp4",
+          "scene_text": "你的伴侣被确诊了一种慢性疾病，不致命但会长期影响生活质量。医生说需要长期治疗和照料。你看着坐在医院里的伴侣，对方的眼神里满是歉意。",
+          "options": [
+            {
+              "id": "A",
+              "text": "握住对方的手说：'这是我们的事，不是你一个人的。'你的承诺不会因为困难而改变。",
+              "scores": { "commitment_depth": 9, "expression_intensity": 6, "security_baseline": 5, "autonomy_need": -3 }
+            },
+            {
+              "id": "B",
+              "text": "内心一阵恐慌，但你不会表现出来。你需要时间慢慢接受这个现实。",
+              "scores": { "commitment_depth": 3, "expression_intensity": -4, "security_baseline": -2, "autonomy_need": 2 }
+            },
+            {
+              "id": "C",
+              "text": "开始理性地研究这个疾病——治疗方案、费用、生活调整。你用行动来表达爱，而不是情绪。",
+              "scores": { "growth_orientation": 6, "commitment_depth": 5, "expression_intensity": -2, "security_baseline": 4 }
+            },
+            {
+              "id": "D",
+              "text": "心里涌起一个你不敢承认的念头——如果早知道，你会做出同样的选择吗？你为自己有这个念头而感到愧疚。",
+              "scores": { "commitment_depth": -5, "security_baseline": -4, "growth_orientation": -1, "expression_intensity": -3 }
+            }
+          ],
+          "media_hint": "医院的白色走廊尽头，两个人的身影一大一小"
+        },
+        {
+          "id": "ch3_q12",
+          "chapter": 3,
+          "shadow_pair_id": "sp6",
+          "scene_text": "你在一个行业峰会上遇到了一个和你灵魂契合的人。你们聊了一整晚，那种思想碰撞的火花是你和现任伴侣从未有过的。分别时你知道，如果你要对方的联系方式，这个人一定会给。",
+          "options": [
+            {
+              "id": "A",
+              "text": "留了联系方式，但只作为专业交流。你不会因为一个晚上的心动而越线。",
+              "scores": { "security_baseline": 3, "commitment_depth": 3, "autonomy_need": 4, "growth_orientation": 3 }
+            },
+            {
+              "id": "B",
+              "text": "礼貌道别，不留联系方式。你知道自己的软肋，不想给自己制造考验。",
+              "scores": { "commitment_depth": 6, "security_baseline": -1, "autonomy_need": -1, "conflict_style": -2 }
+            },
+            {
+              "id": "C",
+              "text": "这次经历让你开始反思和伴侣的关系——是不是缺少了某些东西？",
+              "scores": { "growth_orientation": 5, "commitment_depth": -3, "security_baseline": -3, "intimacy_pace": 2 }
+            },
+            {
+              "id": "D",
+              "text": "回家后把这件事告诉伴侣：'今天遇到一个有趣的人，让我想和你做一些改变。'",
+              "scores": { "expression_intensity": 7, "growth_orientation": 6, "commitment_depth": 5, "conflict_style": 4 }
+            }
+          ],
+          "media_hint": "峰会散场后空旷的会议厅，两个人在门口的灯光下对话"
+        },
+        {
+          "id": "ch3_q13",
+          "chapter": 3,
+          "shadow_pair_id": "sp5",
+          "scene_text": "你和伴侣在一起五年了。对方失业了，已经三个月没有收入。你的积蓄在迅速消耗，伴侣似乎也没有太着急找工作的迹象。你开始感到压力。",
+          "options": [
+            {
+              "id": "A",
+              "text": "给对方时间和空间。每个人都有低谷期，现在你养家就好。但你会默默关注情况。",
+              "scores": { "commitment_depth": 5, "autonomy_need": -2, "security_baseline": 3, "expression_intensity": -3 }
+            },
+            {
+              "id": "B",
+              "text": "认真跟对方谈一次：'我理解你的状态，但我需要你给我一个计划。这是两个人的生活。'",
+              "scores": { "conflict_style": 5, "expression_intensity": 5, "growth_orientation": 6, "commitment_depth": 4 }
+            },
+            {
+              "id": "C",
+              "text": "开始重新评估这段关系。一个在困境中不积极面对的人，你们的价值观可能有根本差异。",
+              "scores": { "commitment_depth": -4, "autonomy_need": 5, "growth_orientation": 3, "security_baseline": -3 }
+            },
+            {
+              "id": "D",
+              "text": "什么都不说，但内心的怨气越来越重。每次花钱都会想'如果对方也在赚钱就好了'。",
+              "scores": { "expression_intensity": -6, "conflict_style": -5, "security_baseline": -4, "growth_orientation": -4 }
+            }
+          ],
+          "media_hint": "厨房桌上散落的账单和一个打开的笔记本电脑，屏幕上是招聘网站"
+        },
+        {
+          "id": "ch3_q14",
+          "chapter": 3,
+          "shadow_pair_id": "sp6",
+          "scene_text": "你出差三天回到家，打开门发现伴侣给你布置了一个小小的欢迎仪式——蜡烛、鲜花、你最爱吃的菜。伴侣穿着你喜欢的衣服站在门口笑着说：'欢迎回家。'",
+          "options": [
+            {
+              "id": "A",
+              "text": "放下行李箱，一把抱住对方。所有出差的疲惫在这一刻全部消失了。",
+              "scores": { "expression_intensity": 7, "intimacy_pace": 5, "commitment_depth": 5, "security_baseline": 5 }
+            },
+            {
+              "id": "B",
+              "text": "感动又有点不好意思。说'你搞这么大阵仗干嘛'，嘴上嫌弃但眼睛已经湿了。",
+              "scores": { "expression_intensity": 2, "commitment_depth": 5, "security_baseline": 4, "intimacy_pace": 2 }
+            },
+            {
+              "id": "C",
+              "text": "开心，但内心有一个声音说'是不是有什么事要跟我说？'你习惯性地寻找背后的原因。",
+              "scores": { "security_baseline": -5, "expression_intensity": -3, "growth_orientation": -2, "commitment_depth": -1 }
+            },
+            {
+              "id": "D",
+              "text": "很温暖。你会记住这个时刻，然后在下一次找机会给对方一个更大的惊喜。",
+              "scores": { "commitment_depth": 5, "growth_orientation": 4, "expression_intensity": 3, "security_baseline": 5 }
+            }
+          ],
+          "media_hint": "门打开的瞬间，暖黄色的烛光和鲜花映入眼帘"
+        },
+        {
+          "id": "ch3_q15",
+          "chapter": 3,
+          "shadow_pair_id": "sp2",
+          "scene_text": "在一次家庭聚会上，你伴侣的家人当着所有人的面批评了你的职业选择：'做这行能养家吗？'你的伴侣坐在旁边，低着头没有说话。",
+          "options": [
+            {
+              "id": "A",
+              "text": "自己礼貌但坚定地回应：'每个人的选择不同，我对自己的路很有信心。'不需要别人替你辩护。",
+              "scores": { "autonomy_need": 7, "conflict_style": 5, "security_baseline": 5, "expression_intensity": 5 }
+            },
+            {
+              "id": "B",
+              "text": "当场不发作，回家后和伴侣大吵一架：'你怎么能让你家人这样说我而一声不吭？'",
+              "scores": { "conflict_style": 6, "expression_intensity": 6, "security_baseline": -3, "autonomy_need": 3 }
+            },
+            {
+              "id": "C",
+              "text": "笑笑不说话。但内心对伴侣的失望像一根刺一样扎进去了。这种时候不站出来，什么时候站？",
+              "scores": { "conflict_style": -4, "expression_intensity": -5, "security_baseline": -5, "commitment_depth": -3 }
+            },
+            {
+              "id": "D",
+              "text": "回家后冷静地和伴侣谈：'你家人怎么看我是一回事，但你在关键时刻的沉默让我很受伤。'",
+              "scores": { "growth_orientation": 6, "expression_intensity": 5, "conflict_style": 4, "commitment_depth": 4 }
+            }
+          ],
+          "media_hint": "一张大圆桌的家庭聚餐，所有人的目光聚焦在主角身上"
+        }
+      ]
+    }
+  ],
+  "shadow_pairs": [
+    {
+      "id": "sp1",
+      "question_ids": ["ch1_q03", "ch2_q07"],
+      "dimension": "security_baseline",
+      "insight_template": "在关系初期，你对'未被及时回应'的反应是{ch1_q03_label}；但在关系稳定后，面对同样的情况你变成了{ch2_q07_label}。这个差异揭示了你的安全感并非固定不变——{insight}。"
+    },
+    {
+      "id": "sp2",
+      "question_ids": ["ch2_q06", "ch3_q15"],
+      "dimension": "conflict_style",
+      "insight_template": "面对伴侣家人的越界行为，你在日常情境中选择了{ch2_q06_label}，但在被公开冒犯时选择了{ch3_q15_label}。这说明你的冲突风格会随情境压力而改变——{insight}。"
+    },
+    {
+      "id": "sp3",
+      "question_ids": ["ch2_q10", "ch3_q10"],
+      "dimension": "autonomy_need",
+      "insight_template": "在'养猫'这样的中等分歧上你选择了{ch2_q10_label}，但面对'是否要孩子'这样的根本分歧时你选择了{ch3_q10_label}。这揭示了你在个人主权和关系妥协之间的真实边界线——{insight}。"
+    },
+    {
+      "id": "sp4",
+      "question_ids": ["ch3_q04", "ch3_q11"],
+      "dimension": "commitment_depth",
+      "insight_template": "当伴侣遭遇事业失败时你选择了{ch3_q04_label}，而当伴侣面对健康危机时你选择了{ch3_q11_label}。这两个回答之间的一致性（或差异）揭示了你的承诺有多'有条件'——{insight}。"
+    },
+    {
+      "id": "sp5",
+      "question_ids": ["ch3_q07", "ch3_q13"],
+      "dimension": "commitment_depth",
+      "insight_template": "伴侣因家庭变故紧急需要钱时你选择了{ch3_q07_label}，而伴侣长期失业消耗积蓄时你选择了{ch3_q13_label}。短期危机和长期消耗对你的承诺考验方式完全不同——{insight}。"
+    },
+    {
+      "id": "sp6",
+      "question_ids": ["ch3_q12", "ch3_q14"],
+      "dimension": "security_baseline",
+      "insight_template": "面对外界的灵魂碰撞诱惑你选择了{ch3_q12_label}，而当伴侣给你制造浪漫惊喜时你的反应是{ch3_q14_label}。这组对比揭示了你在关系中接受爱与被诱惑之间的安全感模式——{insight}。"
+    }
+  ],
+  "dimension_descriptions": {
+    "intimacy_pace": {
+      "low_label": "慢热型",
+      "high_label": "速热型",
+      "description": "你在关系中建立亲密感的速度。慢热型的人像文火煲汤，需要时间和反复确认才愿意走近一步；速热型的人像篝火，一旦感觉对了就会迅速投入，不喜欢犹犹豫豫。"
+    },
+    "expression_intensity": {
+      "low_label": "内敛型",
+      "high_label": "炽热型",
+      "description": "你表达情感的方式和强度。内敛型的人把爱藏在行动里，觉得说出来反而廉价；炽热型的人需要把感受说出来、做出来，爱就要让对方看见、听见、感受到。"
+    },
+    "autonomy_need": {
+      "low_label": "融合型",
+      "high_label": "独立型",
+      "description": "你在关系中对个人空间和独立性的需求程度。融合型的人享受'我们'的感觉，边界模糊反而安心；独立型的人需要清晰的自我空间，亲密但不黏腻才是最好的状态。"
+    },
+    "conflict_style": {
+      "low_label": "回避型",
+      "high_label": "直面型",
+      "description": "你处理关系中矛盾和分歧的方式。回避型的人倾向于冷处理、忽略或自我消化冲突；直面型的人相信问题必须被摆到台面上，即使过程痛苦也好过沉默中腐烂。"
+    },
+    "security_baseline": {
+      "low_label": "敏感型",
+      "high_label": "稳固型",
+      "description": "你在关系中的基础安全感水平。敏感型的人容易察觉到威胁信号，一点风吹草动就会启动防御机制；稳固型的人有一个稳定的内核，不容易被外界波动所动摇。"
+    },
+    "commitment_depth": {
+      "low_label": "谨慎型",
+      "high_label": "全情型",
+      "description": "你在关系中投入承诺的深度和意愿。谨慎型的人会保留退路，认为保护自己是理性的选择；全情型的人一旦决定就全力以赴，相信不留退路反而是最好的承诺。"
+    },
+    "growth_orientation": {
+      "low_label": "安稳型",
+      "high_label": "进化型",
+      "description": "你在关系中更看重稳定还是成长。安稳型的人珍视现有的默契和舒适区，认为稳定本身就是一种幸福；进化型的人渴望关系不断深入和突破，即使这意味着不舒服的自我审视。"
+    }
+  }
+}
