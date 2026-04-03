@@ -88,6 +88,39 @@ export const MALE_CHARACTERS: Character[] = [
     avatar_emoji: '🌙',
     quote: '嗯……我帮你带了杯咖啡',
   },
+  {
+    id: 'jiye',
+    name: '季野',
+    subtitle: '浪子诗人',
+    description: '独立乐队主唱，自由不羁，总在路上。用音乐和旅行治愈一切的他，骨子里其实比谁都渴望一个"留下来的理由"。',
+    emoji: '🎸',
+    gender: 'male',
+    color: 'from-amber-900 to-orange-900',
+    avatar_emoji: '🔥',
+    quote: '走吧，今晚月亮很好',
+  },
+  {
+    id: 'shenmo',
+    name: '沈默',
+    subtitle: '温柔医生',
+    description: '急诊科住院医师，沉稳可靠，不善言辞但总在关键时刻出现。工作忙到没有私人时间，却从不抱怨。',
+    emoji: '🩺',
+    gender: 'male',
+    color: 'from-teal-900 to-emerald-900',
+    avatar_emoji: '💚',
+    quote: '抱歉，又迟到了',
+  },
+  {
+    id: 'jiangyu',
+    name: '江屿',
+    subtitle: '霸总学霸',
+    description: '投资公司合伙人，逻辑缜密，目标明确。习惯用理性解决一切的他，唯独在感情面前束手无策。',
+    emoji: '💼',
+    gender: 'male',
+    color: 'from-gray-900 to-slate-900',
+    avatar_emoji: '🏔️',
+    quote: '我分析过了，我们很合适',
+  },
 ]
 
 export const FEMALE_CHARACTERS: Character[] = [
@@ -101,6 +134,39 @@ export const FEMALE_CHARACTERS: Character[] = [
     color: 'from-pink-900 to-rose-900',
     avatar_emoji: '🌸',
     quote: '啊，你也喜欢这本！',
+  },
+  {
+    id: 'linwan',
+    name: '林晚',
+    subtitle: '冷面学姐',
+    description: '心理学研究生，理性克制，说话直接。看起来什么都不在乎，但日记本写满了她从不说出口的心事。',
+    emoji: '📓',
+    gender: 'female',
+    color: 'from-slate-900 to-zinc-900',
+    avatar_emoji: '🌙',
+    quote: '我不是冷，我只是需要时间确认',
+  },
+  {
+    id: 'yezhiqiu',
+    name: '叶知秋',
+    subtitle: '文艺摄影师',
+    description: '自由职业摄影师，敏感细腻，用镜头捕捉别人忽略的美。总觉得自己在观察生活而非参与其中。',
+    emoji: '📸',
+    gender: 'female',
+    color: 'from-violet-900 to-purple-900',
+    avatar_emoji: '🦋',
+    quote: '等一下，这个光线太好了',
+  },
+  {
+    id: 'xiacheng',
+    name: '夏橙',
+    subtitle: '元气甜妹',
+    description: '美食博主，阳光开朗，永远充满能量。看起来没心没肺，其实比谁都在意身边人的感受。',
+    emoji: '🍊',
+    gender: 'female',
+    color: 'from-orange-900 to-amber-900',
+    avatar_emoji: '☀️',
+    quote: '今天也要开开心心的！',
   },
 ]
 
@@ -3722,10 +3788,27 @@ export const SUNIAN_STORY: CharacterStory = {
 }
 
 // ============================================================
+// Import additional stories
+// ============================================================
+
+import JIYE_STORY_MODULE from './story-jiye'
+import SHENMO_STORY_MODULE from './story-shenmo'
+import JIANGYU_STORY_MODULE from './story-jiangyu'
+import LINWAN_STORY_MODULE from './story-linwan'
+import YEZHIQIU_STORY_MODULE from './story-yezhiqiu'
+import XIACHENG_STORY_MODULE from './story-xiacheng'
+
+// ============================================================
 // Story map & exports
 // ============================================================
 
 export const CHARACTER_STORIES: Record<string, CharacterStory> = {
   luchen: LUCHEN_STORY,
   sunian: SUNIAN_STORY,
+  jiye: JIYE_STORY_MODULE,
+  shenmo: SHENMO_STORY_MODULE,
+  jiangyu: JIANGYU_STORY_MODULE,
+  linwan: LINWAN_STORY_MODULE,
+  yezhiqiu: YEZHIQIU_STORY_MODULE,
+  xiacheng: XIACHENG_STORY_MODULE,
 }
