@@ -50,6 +50,7 @@ export interface ProfileScores {
 export interface ProfileResult {
   scores: ProfileScores
   normalizedScores: ProfileScores
+  selfPerception?: Record<string, number>
   insights: string[]
   shadow: string
   story: string

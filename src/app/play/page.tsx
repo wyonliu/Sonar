@@ -10,6 +10,9 @@ import ChoicePanel from '@/components/game/ChoicePanel'
 import TraitBar from '@/components/game/TraitBar'
 import ActTransition from '@/components/game/ActTransition'
 import MiniStarMap from '@/components/MiniStarMap'
+import SelfPerception from '@/components/game/SelfPerception'
+import EmojiReaction from '@/components/game/EmojiReaction'
+import QuickSwipe from '@/components/game/QuickSwipe'
 import {
   CharacterStory,
   StoryMessageData,
@@ -46,6 +49,9 @@ function PlayContent() {
   const story = getStory(characterId)
   const character = story?.character
 
+  // Self-perception phase
+  const [showSelfPerception, setShowSelfPerception] = useState(true)
+
   // Game state
   const [gameState, setGameState] = useState<GameState>(() => createInitialState(characterId))
   const [displayedMessages, setDisplayedMessages] = useState<DisplayedMsg[]>([])
@@ -56,6 +62,9 @@ function PlayContent() {
   const [showStarMap, setShowStarMap] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [showEndingAnimation, setShowEndingAnimation] = useState(false)
+
+  // Micro-interaction state
+  const [activeMicroInteraction, setActiveMicroInteraction] = useState<StoryMessageData | null>(null)
 
   const scrollRef = useRef<HTMLDivElement>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -70,7 +79,34 @@ function PlayContent() {
     })
   }, [])
 
-  // Play a sequence of messages with delays
+  // Handle self-perception completion
+  const handleSelfPerceptionComplete = useCallback((results: Record<string, number>) => {
+    setGameState(prev => ({ ...prev, selfPerception: results }))
+    setShowSelfPerception(false)
+  }, [])
+
+  // Ref for resolving micro-interaction promises
+  const microResolveRef = useRef<(() => void) | null>(null)
+
+  // When micro-interaction completes, resolve the promise
+  const handleMicroComplete = useCallback((scores: Record<string, number>) => {
+    setGameState(prev => {
+      const newScores = { ...prev.scores }
+      for (const [key, value] of Object.entries(scores)) {
+        newScores[key] = (newScores[key] || 0) + value
+      }
+      return { ...prev, scores: newScores }
+    })
+    setActiveMicroInteraction(null)
+    if (microResolveRef.current) {
+      const resolve = microResolveRef.current
+      microResolveRef.current = null
+      // Small delay for animation
+      setTimeout(resolve, 300)
+    }
+  }, [])
+
+  // Play a sequence of messages with delays, handling micro-interactions
   const playMessages = useCallback(
     async (messages: StoryMessageData[], onDone?: () => void) => {
       if (playingRef.current) return
@@ -78,6 +114,18 @@ function PlayContent() {
       setIsPlaying(true)
 
       for (const msg of messages) {
+        // Handle micro-interactions inline
+        if (msg.type === 'emoji_reaction' || msg.type === 'quick_swipe') {
+          // Show micro-interaction and wait for user response
+          setActiveMicroInteraction(msg)
+          scrollToBottom()
+          // Wait until user completes the interaction
+          await new Promise<void>((resolve) => {
+            microResolveRef.current = resolve
+          })
+          continue
+        }
+
         const delay = msg.delay || (msg.type === 'scene' ? 600 : msg.type === 'partner' ? 400 : 500)
 
         // Update emotion if present
@@ -116,6 +164,7 @@ function PlayContent() {
   // When act transition completes, load messages_before for current choice point
   useEffect(() => {
     if (!story) return
+    if (showSelfPerception) return
     if (showActTransition) return
     if (playingRef.current) return
     if (gameState.phase !== 'act_transition') return
@@ -133,7 +182,7 @@ function PlayContent() {
         setShowChoices(true)
       }
     })
-  }, [showActTransition, gameState.phase, story])
+  }, [showActTransition, showSelfPerception, gameState.phase, story])
 
   // Handle player choice
   const handleChoiceSelect = useCallback(
@@ -197,7 +246,7 @@ function PlayContent() {
 
       setShowEndingAnimation(true)
 
-      // Brief pause for "人格碎片正在聚合..." animation
+      // Brief pause for animation
       setTimeout(() => {
         const ending = determineEnding(story, endState)
         if (ending) {
@@ -211,6 +260,11 @@ function PlayContent() {
                 scores: { [key]: value },
               }))
               sessionStorage.setItem('sonar_answers', JSON.stringify(answers))
+              sessionStorage.setItem('sonar_character', characterId)
+              // Store self-perception data
+              if (endState.selfPerception && Object.keys(endState.selfPerception).length > 0) {
+                sessionStorage.setItem('sonar_self_perception', JSON.stringify(endState.selfPerception))
+              }
               router.push('/results')
             }, 2000)
           })
@@ -218,7 +272,7 @@ function PlayContent() {
         setShowEndingAnimation(false)
       }, 3000)
     },
-    [story, playMessages, router]
+    [story, playMessages, router, characterId]
   )
 
   if (!story || !character) {
@@ -236,9 +290,16 @@ function PlayContent() {
 
   return (
     <main className="min-h-screen flex flex-col bg-[#0A0E1A]">
+      {/* Self-perception phase */}
+      <AnimatePresence>
+        {showSelfPerception && (
+          <SelfPerception onComplete={handleSelfPerceptionComplete} />
+        )}
+      </AnimatePresence>
+
       {/* Act transition overlay */}
       <AnimatePresence>
-        {showActTransition && currentAct && (
+        {!showSelfPerception && showActTransition && currentAct && (
           <ActTransition act={currentAct} onComplete={handleActTransitionComplete} />
         )}
       </AnimatePresence>
@@ -278,54 +339,85 @@ function PlayContent() {
       </AnimatePresence>
 
       {/* Top bar (fixed) */}
-      <div className="fixed top-0 left-0 right-0 z-30 bg-[#0A0E1A]/80 backdrop-blur-md border-b border-white/[0.04]">
-        <div className="max-w-2xl mx-auto px-4 py-2.5 flex items-center justify-between">
-          <span className="text-xs text-gray-500 tracking-wider">{actLabel}</span>
-          <AffinityHearts affinity={gameState.affinity} />
+      {!showSelfPerception && (
+        <div className="fixed top-0 left-0 right-0 z-30 bg-[#0A0E1A]/80 backdrop-blur-md border-b border-white/[0.04]">
+          <div className="max-w-2xl mx-auto px-4 py-2.5 flex items-center justify-between">
+            <span className="text-xs text-gray-500 tracking-wider">{actLabel}</span>
+            <AffinityHearts affinity={gameState.affinity} />
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Character portrait area */}
-      <div className="pt-10">
-        <CharacterPortrait
-          character={character}
-          emotion={currentEmotion}
-          affinity={gameState.affinity}
-        />
-      </div>
+      {!showSelfPerception && (
+        <div className="pt-10">
+          <CharacterPortrait
+            character={character}
+            emotion={currentEmotion}
+            affinity={gameState.affinity}
+          />
+        </div>
+      )}
 
       {/* Story area (scrollable) */}
-      <div
-        ref={scrollRef}
-        className="flex-1 overflow-y-auto pb-16"
-        style={{ minHeight: '45vh' }}
-      >
-        <div className="max-w-2xl mx-auto">
-          {displayedMessages.map((msg) => (
-            <StoryMessage
-              key={msg.id}
-              message={msg.data}
-              character={character}
-            />
-          ))}
-
-          {/* Choices */}
-          <AnimatePresence>
-            {showChoices && currentChoices.length > 0 && (
-              <ChoicePanel
-                choices={currentChoices}
-                onSelect={handleChoiceSelect}
+      {!showSelfPerception && (
+        <div
+          ref={scrollRef}
+          className="flex-1 overflow-y-auto pb-16"
+          style={{ minHeight: '45vh' }}
+        >
+          <div className="max-w-2xl mx-auto">
+            {displayedMessages.map((msg) => (
+              <StoryMessage
+                key={msg.id}
+                message={msg.data}
+                character={character}
               />
-            )}
-          </AnimatePresence>
+            ))}
 
-          {/* Scroll anchor */}
-          <div ref={messagesEndRef} className="h-4" />
+            {/* Micro-interaction: Emoji Reaction */}
+            <AnimatePresence>
+              {activeMicroInteraction?.type === 'emoji_reaction' && activeMicroInteraction.reactionOptions && (
+                <EmojiReaction
+                  context={activeMicroInteraction.reactionContext || ''}
+                  options={activeMicroInteraction.reactionOptions}
+                  onSelect={handleMicroComplete}
+                />
+              )}
+            </AnimatePresence>
+
+            {/* Micro-interaction: Quick Swipe */}
+            <AnimatePresence>
+              {activeMicroInteraction?.type === 'quick_swipe' && activeMicroInteraction.swipeStatement && (
+                <QuickSwipe
+                  statement={activeMicroInteraction.swipeStatement}
+                  agreeScores={activeMicroInteraction.agreeScores || {}}
+                  disagreeScores={activeMicroInteraction.disagreeScores || {}}
+                  onComplete={handleMicroComplete}
+                />
+              )}
+            </AnimatePresence>
+
+            {/* Choices */}
+            <AnimatePresence>
+              {showChoices && currentChoices.length > 0 && (
+                <ChoicePanel
+                  choices={currentChoices}
+                  onSelect={handleChoiceSelect}
+                />
+              )}
+            </AnimatePresence>
+
+            {/* Scroll anchor */}
+            <div ref={messagesEndRef} className="h-4" />
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Trait collection bar */}
-      <TraitBar traits={gameState.collectedTraits} totalTraits={totalTraits} />
+      {!showSelfPerception && (
+        <TraitBar traits={gameState.collectedTraits} totalTraits={totalTraits} />
+      )}
     </main>
   )
 }

@@ -27,6 +27,7 @@ export interface GameState {
   collectedTraits: CollectedTrait[]
   totalChoicesMade: number
   selectedEndingId: string | null
+  selfPerception: Record<string, number>
 }
 
 export function createInitialState(characterId: string): GameState {
@@ -42,6 +43,7 @@ export function createInitialState(characterId: string): GameState {
     collectedTraits: [],
     totalChoicesMade: 0,
     selectedEndingId: null,
+    selfPerception: {},
   }
 }
 
@@ -178,44 +180,118 @@ export function advanceAfterClosing(story: CharacterStory, state: GameState): Ga
   }
 }
 
+export function calculateDimensionRanges(story: CharacterStory): Record<string, { min: number; max: number }> {
+  const ranges: Record<string, { min: number; max: number }> = {}
+
+  // Initialize all dimensions
+  const allDimsSet: Record<string, boolean> = {}
+  for (const act of story.acts) {
+    for (const cp of act.choice_points) {
+      for (const choice of cp.choices) {
+        for (const key of Object.keys(choice.scores)) {
+          allDimsSet[key] = true
+        }
+      }
+    }
+    // Also count micro-interactions in closing_messages
+    for (const msg of act.closing_messages) {
+      if (msg.type === 'emoji_reaction' && msg.reactionOptions) {
+        for (const opt of msg.reactionOptions) {
+          for (const key of Object.keys(opt.scores)) {
+            allDimsSet[key] = true
+          }
+        }
+      }
+      if (msg.type === 'quick_swipe') {
+        if (msg.agreeScores) for (const key of Object.keys(msg.agreeScores)) allDimsSet[key] = true
+        if (msg.disagreeScores) for (const key of Object.keys(msg.disagreeScores)) allDimsSet[key] = true
+      }
+    }
+  }
+
+  const allDims = Object.keys(allDimsSet)
+
+  for (const dim of allDims) {
+    ranges[dim] = { min: 0, max: 0 }
+  }
+
+  // For each choice point, add the min/max possible contribution
+  for (const act of story.acts) {
+    for (const cp of act.choice_points) {
+      for (const dim of allDims) {
+        const values = cp.choices.map(c => c.scores[dim] || 0)
+        ranges[dim].min += Math.min(...values)
+        ranges[dim].max += Math.max(...values)
+      }
+    }
+    // For micro-interactions, add min/max
+    for (const msg of act.closing_messages) {
+      if (msg.type === 'emoji_reaction' && msg.reactionOptions) {
+        for (const dim of allDims) {
+          const values = msg.reactionOptions.map(o => o.scores[dim] || 0)
+          ranges[dim].min += Math.min(...values)
+          ranges[dim].max += Math.max(...values)
+        }
+      }
+      if (msg.type === 'quick_swipe') {
+        for (const dim of allDims) {
+          const agreeVal = msg.agreeScores?.[dim] || 0
+          const disagreeVal = msg.disagreeScores?.[dim] || 0
+          ranges[dim].min += Math.min(agreeVal, disagreeVal)
+          ranges[dim].max += Math.max(agreeVal, disagreeVal)
+        }
+      }
+    }
+  }
+
+  return ranges
+}
+
+export function normalizeGameScores(
+  rawScores: Record<string, number>,
+  ranges: Record<string, { min: number; max: number }>
+): Record<string, number> {
+  const normalized: Record<string, number> = {}
+  for (const [dim, range] of Object.entries(ranges)) {
+    const raw = rawScores[dim] || 0
+    const span = range.max - range.min
+    if (span === 0) {
+      normalized[dim] = 50
+    } else {
+      normalized[dim] = Math.max(5, Math.min(95, Math.round(((raw - range.min) / span) * 100)))
+    }
+  }
+  return normalized
+}
+
 export function determineEnding(story: CharacterStory, state: GameState) {
   if (!story.endings.length) return null
 
-  const s = state.scores
-  const commitment = s.commitment_depth || 0
-  const expression = s.expression_intensity || 0
-  const autonomy = s.autonomy_need || 0
-  const growth = s.growth_orientation || 0
-  const security = s.security_baseline || 0
-  const affinity = state.affinity
+  const ranges = calculateDimensionRanges(story)
+  const n = normalizeGameScores(state.scores, ranges)
+
+  const commitment = n.commitment_depth ?? 50
+  const expression = n.expression_intensity ?? 50
+  const autonomy = n.autonomy_need ?? 50
+  const growth = n.growth_orientation ?? 50
+  const security = n.security_baseline ?? 50
+  const conflict = n.conflict_style ?? 50
 
   const findEnding = (id: string) => story.endings.find((e) => e.id === id)
 
-  // Warm: high commitment + high expression + high affinity
-  if (affinity >= 65 && commitment > 15 && expression > 10) {
-    return findEnding('warm') || story.endings[0]
+  // Multi-factor scoring for each ending
+  const endingScores: Record<string, number> = {
+    warm: commitment * 0.35 + expression * 0.25 + security * 0.25 + conflict * 0.15,
+    open: autonomy * 0.35 + growth * 0.35 + (100 - commitment) * 0.15 + conflict * 0.15,
+    regret: (100 - security) * 0.3 + (100 - expression) * 0.25 + (100 - commitment) * 0.3 + (100 - conflict) * 0.15,
+    rebirth: growth * 0.4 + Math.abs(50 - commitment) * 0.2 + conflict * 0.25 + (100 - security) * 0.15,
   }
 
-  // Open: high autonomy + high growth
-  if (autonomy > 15 && growth > 10 && affinity >= 40) {
-    return findEnding('open') || story.endings[0]
-  }
+  // Pick highest scoring ending
+  const sorted = Object.entries(endingScores).sort((a, b) => b[1] - a[1])
+  const bestId = sorted[0][0]
 
-  // Rebirth: fluctuating (moderate affinity) + high growth
-  if (growth > 10 && affinity >= 30 && affinity < 65) {
-    return findEnding('rebirth') || story.endings[story.endings.length - 1]
-  }
-
-  // Regret: low affinity or low security
-  if (affinity < 40 || security < -10) {
-    return findEnding('regret') || story.endings[story.endings.length - 1]
-  }
-
-  // Default: pick based on highest signal
-  if (commitment + expression > autonomy + growth) {
-    return findEnding('warm') || story.endings[0]
-  }
-  return findEnding('open') || story.endings[0]
+  return findEnding(bestId) || story.endings[0]
 }
 
 export function getTotalTraitsForStory(story: CharacterStory): number {

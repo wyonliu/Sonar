@@ -16,12 +16,19 @@ export interface Character {
 }
 
 export interface StoryMessageData {
-  type: 'scene' | 'narrator' | 'partner' | 'player_choice' | 'trait_unlock' | 'chapter_title'
+  type: 'scene' | 'narrator' | 'partner' | 'player_choice' | 'trait_unlock' | 'chapter_title' | 'emoji_reaction' | 'quick_swipe'
   text?: string
   emoji?: string
   gradient?: 'warm' | 'cool' | 'tense' | 'romantic' | 'neutral' | 'bittersweet' | 'hopeful'
   delay?: number
   partnerEmotion?: 'happy' | 'neutral' | 'sad' | 'shy' | 'angry' | 'vulnerable' | 'loving' | 'distant'
+  // Micro-interaction: emoji_reaction
+  reactionContext?: string
+  reactionOptions?: { emoji: string; label: string; scores: Record<string, number> }[]
+  // Micro-interaction: quick_swipe
+  swipeStatement?: string
+  agreeScores?: Record<string, number>
+  disagreeScores?: Record<string, number>
 }
 
 export interface ChoiceOption {
@@ -172,22 +179,22 @@ export const LUCHEN_STORY: CharacterStory = {
               id: 'luchen_1_1_a',
               text: '"专门来的，这家店的手冲很不错。你呢？"',
               emoji: '☕',
-              scores: { intimacy_pace: 5, expression_intensity: 3, security_baseline: 3 },
-              affinity_change: 8,
+              scores: { intimacy_pace: 4, expression_intensity: 3, security_baseline: 2, growth_orientation: 2 },
+              affinity_change: 5,
             },
             {
               id: 'luchen_1_1_b',
               text: '"躲雨。不过既然来了，点杯咖啡也不错。"',
               emoji: '🌧️',
-              scores: { intimacy_pace: -2, expression_intensity: -1, autonomy_need: 3 },
-              affinity_change: 3,
+              scores: { intimacy_pace: -2, expression_intensity: -1, autonomy_need: 4, conflict_style: 2 },
+              affinity_change: 2,
             },
             {
               id: 'luchen_1_1_c',
               text: '"两者都有吧。你在看什么书？看起来很投入。"',
               emoji: '📖',
-              scores: { intimacy_pace: 7, expression_intensity: 5, security_baseline: 4 },
-              affinity_change: 12,
+              scores: { intimacy_pace: 5, expression_intensity: 4, security_baseline: 3 },
+              affinity_change: 7,
               trait_unlock: {
                 name: '好奇心引力',
                 description: '你对他人世界的真诚好奇，是关系的起点',
@@ -198,8 +205,8 @@ export const LUCHEN_STORY: CharacterStory = {
               id: 'luchen_1_1_d',
               text: '微微点头，然后低头看自己的手机。不太想和陌生人闲聊。',
               emoji: '📱',
-              scores: { intimacy_pace: -6, expression_intensity: -5, autonomy_need: 6, security_baseline: -2 },
-              affinity_change: -5,
+              scores: { intimacy_pace: -4, expression_intensity: -3, autonomy_need: 5, security_baseline: -1 },
+              affinity_change: -3,
             },
           ],
           response_high: [
@@ -275,8 +282,8 @@ export const LUCHEN_STORY: CharacterStory = {
               id: 'luchen_1_2_a',
               text: '"不奇怪。我觉得\'稳\'是很珍贵的品质。其实我也有过类似的经历。"',
               emoji: '💬',
-              scores: { expression_intensity: 7, intimacy_pace: 5, security_baseline: 5, commitment_depth: 3 },
-              affinity_change: 12,
+              scores: { expression_intensity: 5, intimacy_pace: 4, security_baseline: 3, commitment_depth: 2 },
+              affinity_change: 7,
               trait_unlock: {
                 name: '共鸣体质',
                 description: '你愿意在他人袒露脆弱时回应以真诚',
@@ -287,22 +294,22 @@ export const LUCHEN_STORY: CharacterStory = {
               id: 'luchen_1_2_b',
               text: '"每个人的节奏不一样，没有什么好不好意思的。"',
               emoji: '😊',
-              scores: { expression_intensity: 2, security_baseline: 4, autonomy_need: 2 },
-              affinity_change: 6,
+              scores: { expression_intensity: 2, security_baseline: 4, autonomy_need: 3, growth_orientation: 2 },
+              affinity_change: 4,
             },
             {
               id: 'luchen_1_2_c',
               text: '"哈哈，是有点奇怪。但这种聊天挺舒服的。"',
               emoji: '😄',
-              scores: { expression_intensity: 4, intimacy_pace: 3, security_baseline: 2 },
-              affinity_change: 8,
+              scores: { expression_intensity: 4, intimacy_pace: 3, security_baseline: 2, conflict_style: 2 },
+              affinity_change: 5,
             },
             {
               id: 'luchen_1_2_d',
               text: '"嗯。"然后沉默了一会儿，不知道该怎么接。感情的话题让你有点不自在。',
               emoji: '😶',
-              scores: { expression_intensity: -6, intimacy_pace: -4, security_baseline: -3, autonomy_need: 4 },
-              affinity_change: -3,
+              scores: { expression_intensity: -4, intimacy_pace: -3, security_baseline: -2, autonomy_need: 4 },
+              affinity_change: -2,
             },
           ],
           response_high: [
@@ -371,9 +378,25 @@ export const LUCHEN_STORY: CharacterStory = {
           delay: 2000,
         },
         {
+          type: 'emoji_reaction',
+          reactionContext: '他有点紧张地等着你的回应',
+          reactionOptions: [
+            { emoji: '😊', label: '开心', scores: { intimacy_pace: 3, expression_intensity: 2 } },
+            { emoji: '😏', label: '有趣', scores: { autonomy_need: 2, expression_intensity: 1 } },
+            { emoji: '🥰', label: '心动', scores: { intimacy_pace: 4, security_baseline: 2 } },
+            { emoji: '😐', label: '平静', scores: { autonomy_need: 3, intimacy_pace: -2 } },
+          ],
+        },
+        {
           type: 'narrator',
           text: '你们交换了联系方式。他的头像是一杯咖啡，朋友圈里都是设计作品和偶尔的读书笔记。',
           delay: 1500,
+        },
+        {
+          type: 'quick_swipe',
+          swipeStatement: '他说"下周再来"的时候，你已经有点期待了',
+          agreeScores: { intimacy_pace: 3, commitment_depth: 2 },
+          disagreeScores: { autonomy_need: 2, intimacy_pace: -1 },
         },
         {
           type: 'narrator',
@@ -547,7 +570,7 @@ export const LUCHEN_STORY: CharacterStory = {
               text: '"我理解。我怕的是……投入了全部，最后发现对方不是真的想留下来。"',
               emoji: '🌙',
               scores: { commitment_depth: 6, expression_intensity: 8, security_baseline: 4, intimacy_pace: 5 },
-              affinity_change: 15,
+              affinity_change: 8,
             },
             {
               id: 'luchen_2_2_b',
@@ -568,7 +591,7 @@ export const LUCHEN_STORY: CharacterStory = {
               text: '默默握住他的手。什么都没说。',
               emoji: '🤝',
               scores: { expression_intensity: 5, intimacy_pace: 8, commitment_depth: 5, security_baseline: 6 },
-              affinity_change: 13,
+              affinity_change: 7,
               trait_unlock: {
                 name: '心动阈值',
                 description: '在对的时刻，你选择行动而非语言',
@@ -636,6 +659,16 @@ export const LUCHEN_STORY: CharacterStory = {
           delay: 1500,
         },
         {
+          type: 'emoji_reaction',
+          reactionContext: '走在一起的时候，你心里的感觉是',
+          reactionOptions: [
+            { emoji: '💓', label: '心跳加速', scores: { intimacy_pace: 3, expression_intensity: 2 } },
+            { emoji: '😌', label: '很安心', scores: { security_baseline: 3, commitment_depth: 2 } },
+            { emoji: '🦋', label: '有点紧张', scores: { intimacy_pace: 2, security_baseline: -1 } },
+            { emoji: '🤔', label: '在想什么', scores: { autonomy_need: 2, growth_orientation: 2 } },
+          ],
+        },
+        {
           type: 'partner',
           text: '到了。',
           partnerEmotion: 'shy',
@@ -651,6 +684,12 @@ export const LUCHEN_STORY: CharacterStory = {
           type: 'narrator',
           text: '他转身走了几步，又回头看了你一眼。',
           delay: 1500,
+        },
+        {
+          type: 'quick_swipe',
+          swipeStatement: '你希望他再多走慢一点',
+          agreeScores: { intimacy_pace: 3, commitment_depth: 2 },
+          disagreeScores: { autonomy_need: 2, intimacy_pace: -1 },
         },
         {
           type: 'narrator',
@@ -723,7 +762,7 @@ export const LUCHEN_STORY: CharacterStory = {
               text: '"说实话有点紧张，但我想去。你到时候要罩着我哦。"',
               emoji: '😬',
               scores: { autonomy_need: -1, expression_intensity: 6, intimacy_pace: 4, security_baseline: 3 },
-              affinity_change: 12,
+              affinity_change: 7,
             },
             {
               id: 'luchen_3_1_d',
@@ -919,7 +958,7 @@ export const LUCHEN_STORY: CharacterStory = {
               text: '走过去，从背后抱住他。什么都不说。',
               emoji: '🫂',
               scores: { expression_intensity: 6, security_baseline: 7, intimacy_pace: 5, commitment_depth: 4 },
-              affinity_change: 15,
+              affinity_change: 8,
             },
             {
               id: 'luchen_3_3_b',
@@ -999,6 +1038,22 @@ export const LUCHEN_STORY: CharacterStory = {
           text: '那天晚上你们第一次睡在同一张床上。什么都没发生，但你听着他均匀的呼吸声，觉得世界很安静。',
           gradient: 'romantic',
           delay: 2000,
+        },
+        {
+          type: 'emoji_reaction',
+          reactionContext: '听着他的呼吸声，你在想',
+          reactionOptions: [
+            { emoji: '🥰', label: '好幸福', scores: { commitment_depth: 3, security_baseline: 3 } },
+            { emoji: '😊', label: '很平静', scores: { security_baseline: 3, autonomy_need: 1 } },
+            { emoji: '🤗', label: '想靠近', scores: { intimacy_pace: 3, expression_intensity: 2 } },
+            { emoji: '😶', label: '有点怕', scores: { security_baseline: -2, commitment_depth: -1 } },
+          ],
+        },
+        {
+          type: 'quick_swipe',
+          swipeStatement: '你已经开始想象和他在一起更久的未来',
+          agreeScores: { commitment_depth: 3, growth_orientation: 2 },
+          disagreeScores: { autonomy_need: 2, commitment_depth: -1 },
         },
         {
           type: 'narrator',
@@ -1182,7 +1237,7 @@ export const LUCHEN_STORY: CharacterStory = {
               text: '"你自己吃吧，我先走了。"站起来就走，你需要冷静一下。',
               emoji: '🚪',
               scores: { conflict_style: -4, autonomy_need: 5, expression_intensity: 3, security_baseline: -5 },
-              affinity_change: -10,
+              affinity_change: -6,
             },
             {
               id: 'luchen_4_2_d',
@@ -1307,7 +1362,7 @@ export const LUCHEN_STORY: CharacterStory = {
               text: '"你需要空间"是不是"想分手"的委婉说法？你直说。',
               emoji: '💔',
               scores: { security_baseline: -8, conflict_style: -3, expression_intensity: 4, autonomy_need: -3 },
-              affinity_change: -12,
+              affinity_change: -7,
             },
             {
               id: 'luchen_4_3_d',
@@ -1369,6 +1424,22 @@ export const LUCHEN_STORY: CharacterStory = {
           text: '接下来的日子，你们之间隔着一段说不清的距离。不是分开，但也不像之前那么近。',
           emoji: '🌫️',
           gradient: 'bittersweet',
+        },
+        {
+          type: 'emoji_reaction',
+          reactionContext: '这段沉默的日子里，你内心最强烈的感受是',
+          reactionOptions: [
+            { emoji: '😢', label: '难过', scores: { security_baseline: -2, commitment_depth: 2 } },
+            { emoji: '😤', label: '不甘', scores: { conflict_style: 3, growth_orientation: 2 } },
+            { emoji: '🧘', label: '接受', scores: { autonomy_need: 3, security_baseline: 2 } },
+            { emoji: '💪', label: '想改变', scores: { growth_orientation: 3, commitment_depth: 2 } },
+          ],
+        },
+        {
+          type: 'quick_swipe',
+          swipeStatement: '你觉得这段关系值得你去争取',
+          agreeScores: { commitment_depth: 3, growth_orientation: 2 },
+          disagreeScores: { autonomy_need: 2, commitment_depth: -2 },
         },
         {
           type: 'narrator',
@@ -1458,7 +1529,7 @@ export const LUCHEN_STORY: CharacterStory = {
               text: '"这件事我们需要一起决定。你先别急着答复公司，我们好好想想。"',
               emoji: '🤔',
               scores: { commitment_depth: 8, growth_orientation: 5, conflict_style: 6, expression_intensity: 5 },
-              affinity_change: 12,
+              affinity_change: 7,
               trait_unlock: {
                 name: '承诺温度',
                 description: '在关系的岔路口，你选择"我们"而非"我"',
@@ -1556,8 +1627,8 @@ export const LUCHEN_STORY: CharacterStory = {
               id: 'luchen_5_2_a',
               text: '"我愿意跟你走下去。不管是异地，还是别的什么困难。因为遇到对的人比什么都重要。"',
               emoji: '💕',
-              scores: { commitment_depth: 10, expression_intensity: 8, security_baseline: 6, growth_orientation: 5, intimacy_pace: 5 },
-              affinity_change: 15,
+              scores: { commitment_depth: 7, expression_intensity: 5, security_baseline: 4, growth_orientation: 3, intimacy_pace: 3 },
+              affinity_change: 8,
               trait_unlock: {
                 name: '关系蓝图',
                 description: '你心中有一幅清晰的画面——关于爱，关于你想成为的人',
@@ -1568,7 +1639,7 @@ export const LUCHEN_STORY: CharacterStory = {
               id: 'luchen_5_2_b',
               text: '"我觉得我们可以试试。但我需要你答应我，有问题的时候别一个人扛。"',
               emoji: '🤝',
-              scores: { commitment_depth: 6, growth_orientation: 7, conflict_style: 5, expression_intensity: 5, autonomy_need: 3 },
+              scores: { commitment_depth: 5, growth_orientation: 5, conflict_style: 4, expression_intensity: 4, autonomy_need: 2 },
               affinity_change: 10,
             },
             {
@@ -1583,7 +1654,7 @@ export const LUCHEN_STORY: CharacterStory = {
               text: '"也许……这就是我们的终点。不是不喜欢，是我给不了你想要的那种确定。"',
               emoji: '🍂',
               scores: { commitment_depth: -5, security_baseline: -6, expression_intensity: 4, autonomy_need: 6, growth_orientation: -2 },
-              affinity_change: -15,
+              affinity_change: -8,
             },
           ],
           response_high: [
@@ -1640,6 +1711,12 @@ export const LUCHEN_STORY: CharacterStory = {
         },
       ],
       closing_messages: [
+        {
+          type: 'quick_swipe',
+          swipeStatement: '不管结局如何，你不后悔这段经历',
+          agreeScores: { growth_orientation: 3, security_baseline: 2 },
+          disagreeScores: { security_baseline: -2, commitment_depth: -1 },
+        },
         {
           type: 'narrator',
           text: '故事到这里，画上了一个属于你的句号。',
@@ -1894,7 +1971,7 @@ export const SUNIAN_STORY: CharacterStory = {
               text: '"很温暖，有种治愈的感觉。你也画画吗？"指了指她衬衫上的颜料。',
               emoji: '🎨',
               scores: { intimacy_pace: 7, expression_intensity: 5, security_baseline: 4 },
-              affinity_change: 12,
+              affinity_change: 7,
               trait_unlock: {
                 name: '好奇心引力',
                 description: '你对他人世界的真诚好奇，是关系的起点',
@@ -1920,7 +1997,7 @@ export const SUNIAN_STORY: CharacterStory = {
               text: '"第一次看，感觉画面里藏了很多故事。像在说什么但又没说完。"',
               emoji: '✨',
               scores: { intimacy_pace: 6, expression_intensity: 6, security_baseline: 5, commitment_depth: 2 },
-              affinity_change: 13,
+              affinity_change: 7,
             },
           ],
           response_high: [
@@ -2028,7 +2105,7 @@ export const SUNIAN_STORY: CharacterStory = {
               text: '"能当饭吃的东西太多了，但能让人快乐的事不多。你前男友不懂。"',
               emoji: '🔥',
               scores: { expression_intensity: 7, intimacy_pace: 5, commitment_depth: 3, security_baseline: 4 },
-              affinity_change: 12,
+              affinity_change: 7,
             },
             {
               id: 'sunian_1_2_d',
@@ -2087,10 +2164,26 @@ export const SUNIAN_STORY: CharacterStory = {
           delay: 1500,
         },
         {
+          type: 'emoji_reaction',
+          reactionContext: '她眼睛亮亮地看着你，等你回答',
+          reactionOptions: [
+            { emoji: '😊', label: '想去', scores: { intimacy_pace: 3, expression_intensity: 2 } },
+            { emoji: '🥰', label: '被打动', scores: { intimacy_pace: 4, security_baseline: 2 } },
+            { emoji: '🤔', label: '犹豫', scores: { autonomy_need: 3, intimacy_pace: -1 } },
+            { emoji: '😎', label: '随缘', scores: { autonomy_need: 2, security_baseline: 1 } },
+          ],
+        },
+        {
           type: 'partner',
           text: '不去也没关系啦，我们加了微信了嘛 ☺️',
           partnerEmotion: 'shy',
           delay: 1500,
+        },
+        {
+          type: 'quick_swipe',
+          swipeStatement: '加完微信后你忍不住把她朋友圈翻了一遍',
+          agreeScores: { intimacy_pace: 3, expression_intensity: 1 },
+          disagreeScores: { autonomy_need: 2, intimacy_pace: -1 },
         },
         {
           type: 'narrator',
@@ -2269,14 +2362,14 @@ export const SUNIAN_STORY: CharacterStory = {
               text: '"应该。有些事的意义不在结果，在于你做的时候是什么样子。而你画画的样子很美。"',
               emoji: '🌙',
               scores: { commitment_depth: 5, expression_intensity: 8, security_baseline: 5, intimacy_pace: 5 },
-              affinity_change: 15,
+              affinity_change: 8,
             },
             {
               id: 'sunian_2_2_b',
               text: '"我不知道该不该，但我知道你这么纠结说明你是真的热爱。不热爱的人不会心疼。"',
               emoji: '💛',
               scores: { expression_intensity: 6, commitment_depth: 4, growth_orientation: 5 },
-              affinity_change: 12,
+              affinity_change: 7,
               trait_unlock: {
                 name: '心动阈值',
                 description: '你在别人脆弱时，给出的不是答案而是理解',
@@ -2364,10 +2457,26 @@ export const SUNIAN_STORY: CharacterStory = {
           delay: 1500,
         },
         {
+          type: 'emoji_reaction',
+          reactionContext: '看到她的朋友圈，你的第一反应是',
+          reactionOptions: [
+            { emoji: '💓', label: '心动了', scores: { intimacy_pace: 3, commitment_depth: 2 } },
+            { emoji: '😊', label: '会心一笑', scores: { security_baseline: 3, expression_intensity: 1 } },
+            { emoji: '🥹', label: '被感动', scores: { expression_intensity: 3, commitment_depth: 2 } },
+            { emoji: '🤔', label: '是在说我吗', scores: { security_baseline: -1, autonomy_need: 2 } },
+          ],
+        },
+        {
           type: 'narrator',
           text: '你点开她的头像看了很久。心跳变快了一点。',
           gradient: 'romantic',
           delay: 1500,
+        },
+        {
+          type: 'quick_swipe',
+          swipeStatement: '你已经开始期待每天收到她的消息了',
+          agreeScores: { intimacy_pace: 3, commitment_depth: 2 },
+          disagreeScores: { autonomy_need: 3, intimacy_pace: -1 },
         },
         {
           type: 'narrator',
@@ -2441,7 +2550,7 @@ export const SUNIAN_STORY: CharacterStory = {
               text: '"让我见你的朋友们？那我是不是得准备一下，表现得靠谱一点？"',
               emoji: '😬',
               scores: { autonomy_need: -1, expression_intensity: 5, intimacy_pace: 4, security_baseline: 3 },
-              affinity_change: 12,
+              affinity_change: 7,
             },
             {
               id: 'sunian_3_1_d',
@@ -2550,7 +2659,7 @@ export const SUNIAN_STORY: CharacterStory = {
               text: '"向日葵到处都有吧，有什么好特地跑一趟的。"',
               emoji: '🤨',
               scores: { conflict_style: -6, autonomy_need: 5, expression_intensity: -5, security_baseline: -4 },
-              affinity_change: -10,
+              affinity_change: -6,
             },
           ],
           response_high: [
@@ -2631,14 +2740,14 @@ export const SUNIAN_STORY: CharacterStory = {
               text: '蹲下来，帮她把地上的纸捡起来。然后坐在她旁边，拍拍她的背。',
               emoji: '🫂',
               scores: { expression_intensity: 6, security_baseline: 7, intimacy_pace: 5, commitment_depth: 4 },
-              affinity_change: 15,
+              affinity_change: 8,
             },
             {
               id: 'sunian_3_3_b',
               text: '"哭吧，想哭就哭。他们不选你是他们的损失。"',
               emoji: '💧',
               scores: { expression_intensity: 6, security_baseline: 6, intimacy_pace: 4, growth_orientation: 3 },
-              affinity_change: 12,
+              affinity_change: 7,
             },
             {
               id: 'sunian_3_3_c',
@@ -2718,6 +2827,22 @@ export const SUNIAN_STORY: CharacterStory = {
           text: '虽然很丑但是我要把它贴在墙上 🐰',
           partnerEmotion: 'happy',
           delay: 1500,
+        },
+        {
+          type: 'emoji_reaction',
+          reactionContext: '她把你画的兔子贴在墙上，你的感觉是',
+          reactionOptions: [
+            { emoji: '🥰', label: '幸福', scores: { commitment_depth: 3, security_baseline: 3 } },
+            { emoji: '😂', label: '好笑', scores: { expression_intensity: 2, intimacy_pace: 1 } },
+            { emoji: '🤗', label: '温暖', scores: { security_baseline: 3, intimacy_pace: 2 } },
+            { emoji: '😳', label: '不好意思', scores: { expression_intensity: -1, autonomy_need: 2 } },
+          ],
+        },
+        {
+          type: 'quick_swipe',
+          swipeStatement: '你觉得自己可以在她面前完全放下防备',
+          agreeScores: { security_baseline: 3, commitment_depth: 2 },
+          disagreeScores: { autonomy_need: 2, security_baseline: -2 },
         },
         {
           type: 'narrator',
@@ -3034,7 +3159,7 @@ export const SUNIAN_STORY: CharacterStory = {
               text: '心里很慌。"你要想清楚什么？是不是想分手？直说好了。"',
               emoji: '💔',
               scores: { security_baseline: -8, conflict_style: -4, expression_intensity: 3, autonomy_need: -3 },
-              affinity_change: -12,
+              affinity_change: -7,
             },
             {
               id: 'sunian_4_3_d',
@@ -3104,9 +3229,25 @@ export const SUNIAN_STORY: CharacterStory = {
           gradient: 'bittersweet',
         },
         {
+          type: 'emoji_reaction',
+          reactionContext: '翻看以前的聊天记录，你最大的感受是',
+          reactionOptions: [
+            { emoji: '😢', label: '心疼', scores: { security_baseline: -2, commitment_depth: 2 } },
+            { emoji: '😤', label: '不甘心', scores: { conflict_style: 3, growth_orientation: 2 } },
+            { emoji: '😔', label: '失落', scores: { security_baseline: -2, expression_intensity: -1 } },
+            { emoji: '💪', label: '要挽回', scores: { commitment_depth: 3, growth_orientation: 2 } },
+          ],
+        },
+        {
           type: 'narrator',
           text: '你翻看以前的聊天记录，满屏的emoji和感叹号，突然觉得那些快乐好像是很久以前的事了。',
           delay: 2000,
+        },
+        {
+          type: 'quick_swipe',
+          swipeStatement: '你觉得自己应该主动找她谈谈',
+          agreeScores: { conflict_style: 3, commitment_depth: 2 },
+          disagreeScores: { autonomy_need: 2, conflict_style: -2 },
         },
         {
           type: 'narrator',
@@ -3178,7 +3319,7 @@ export const SUNIAN_STORY: CharacterStory = {
               text: '"去吧！这是你的梦想啊！三个月很快的，我们每天视频。"',
               emoji: '✈️',
               scores: { commitment_depth: 6, growth_orientation: 8, autonomy_need: 5, security_baseline: 5 },
-              affinity_change: 12,
+              affinity_change: 7,
               trait_unlock: {
                 name: '承诺温度',
                 description: '真正的支持不是把人留在身边，而是推他们去想去的地方',
@@ -3296,8 +3437,8 @@ export const SUNIAN_STORY: CharacterStory = {
               id: 'sunian_5_2_a',
               text: '"我也是。以前觉得一个人挺好的，但你让我想成为更好的人。我们走下去。"',
               emoji: '💕',
-              scores: { commitment_depth: 10, expression_intensity: 8, security_baseline: 6, growth_orientation: 5, intimacy_pace: 5 },
-              affinity_change: 15,
+              scores: { commitment_depth: 7, expression_intensity: 5, security_baseline: 4, growth_orientation: 3, intimacy_pace: 3 },
+              affinity_change: 8,
               trait_unlock: {
                 name: '关系蓝图',
                 description: '你心里有一幅清晰的画面——关于爱，关于你想给的未来',
@@ -3308,7 +3449,7 @@ export const SUNIAN_STORY: CharacterStory = {
               id: 'sunian_5_2_b',
               text: '"我想和你在一起。但我需要你答应我，别什么事都自己扛，有我在呢。"',
               emoji: '🤝',
-              scores: { commitment_depth: 7, growth_orientation: 6, conflict_style: 5, expression_intensity: 5, autonomy_need: 2 },
+              scores: { commitment_depth: 5, growth_orientation: 5, conflict_style: 4, expression_intensity: 4, autonomy_need: 2 },
               affinity_change: 10,
             },
             {
@@ -3323,7 +3464,7 @@ export const SUNIAN_STORY: CharacterStory = {
               text: '"也许你应该一个人去。没有牵挂地去追你的梦想。我怕我会拖累你。"',
               emoji: '🍂',
               scores: { commitment_depth: -6, security_baseline: -5, expression_intensity: 3, autonomy_need: 7, growth_orientation: -3 },
-              affinity_change: -15,
+              affinity_change: -8,
             },
           ],
           response_high: [
@@ -3380,6 +3521,12 @@ export const SUNIAN_STORY: CharacterStory = {
         },
       ],
       closing_messages: [
+        {
+          type: 'quick_swipe',
+          swipeStatement: '不管结局如何，这段感情让你成为了更好的自己',
+          agreeScores: { growth_orientation: 3, security_baseline: 2 },
+          disagreeScores: { security_baseline: -2, growth_orientation: -1 },
+        },
         {
           type: 'narrator',
           text: '故事到这里，画上了一个属于你的句号。',

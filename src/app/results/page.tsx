@@ -24,13 +24,18 @@ export default function ResultsPage() {
 
     try {
       const answers: QuestionOption[] = JSON.parse(stored)
+      const characterId = sessionStorage.getItem('sonar_character') || undefined
+      const selfPerceptionStr = sessionStorage.getItem('sonar_self_perception')
+      const selfPerception: Record<string, number> = selfPerceptionStr ? JSON.parse(selfPerceptionStr) : {}
+
       const scores = calculateScores(answers)
-      const normalizedScores = normalizeScores(scores)
-      const { insights, shadow, archetype } = generateLocalInsights(normalizedScores)
+      const normalizedScores = normalizeScores(scores, characterId)
+      const { insights, shadow, archetype } = generateLocalInsights(normalizedScores, selfPerception)
 
       setResult({
         scores,
         normalizedScores,
+        selfPerception,
         insights,
         shadow,
         story: '',
@@ -41,7 +46,7 @@ export default function ResultsPage() {
       fetch('/api/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ answers, scores: normalizedScores }),
+        body: JSON.stringify({ answers, scores: normalizedScores, selfPerception, characterId }),
       })
         .then(res => res.ok ? res.json() : null)
         .then(data => {
